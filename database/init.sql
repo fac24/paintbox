@@ -21,6 +21,7 @@ CREATE TABLE arts (
 INSERT INTO users (email, username) VALUES (
     '1@1.1',
     'ArtistNr1'
+
 );
 
 INSERT INTO arts (mood, alt, caption, public, prompt, img) VALUES (
