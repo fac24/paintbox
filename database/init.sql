@@ -14,7 +14,7 @@ CREATE TABLE users (
 
 INSERT INTO users (email, username, password) VALUES (
     '1@1.1',
-    'ArtistNr1'
+    'ArtistNr1',
     '123'
 );
 
