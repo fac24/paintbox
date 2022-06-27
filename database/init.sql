@@ -39,4 +39,10 @@ CREATE TABLE sessions (
 
 
 
+INSERT INTO users (username, email) VALUES (
+    'testuser',
+    'user@test.try'
+);
+
+
 COMMIT;
