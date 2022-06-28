@@ -12,3 +12,13 @@ const upload = multer({
     filname: (req, file, cb) => cb(null, file.originalname),
   }),
 });
+
+// using next connect and helping us handle the requests that are sent.
+
+const apiRoute = nextConnect({
+  //creating an error message if theres an error the file cannot be found, only one file at a time.
+  // only jpegs.
+  onError(error, req, res) {
+    res.status(501).json({ error: `oopsie something does not compute` });
+  },
+});
