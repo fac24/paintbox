@@ -8,7 +8,7 @@ const StyledSubmitButton = styled.button`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: 20rem;
+  max-width: 40rem;
 `;
 
 export default StyledSubmitButton;
