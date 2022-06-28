@@ -1,4 +1,4 @@
-function UploadForm() {
+const UploadForm = () => {
   return (
     <div>
       <form>
@@ -38,10 +38,29 @@ function UploadForm() {
           </label>
         </div>
 
-        <button>Submit</button>
+        <button type="button">Submit</button>
       </form>
     </div>
   );
-}
+};
+
+// const IndexPage = () => {
+//   return (
+//     <>
+//       <Head>
+//         <title>How to Crop and Resize Image in the Browser</title>
+//         <link rel="icon" href="/favicon.ico" />
+//         <meta charSet="utf-8" />
+//         <script
+//           src="https://widget.Cloudinary.com/v2.0/global/all.js"
+//           type="text/javascript"
+//         ></script>
+//       </Head>
+//       <div className="main">
+//           [...]
+//       </div>
+//     </>
+//   );
+// }
 
 export default UploadForm;
