@@ -1,8 +1,21 @@
-import styled from "styled-components";
+// import styled from "styled-components";
+
+import StyledDiv from "../styled-components/StyledDiv";
+
+// const StyledDiv = styled.div`
+//   display: flex;
+//   flex-wrap: nowrap;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: pink;
+//   margin-left: auto;
+//   margin-right: auto;
+//   max-width: 20rem;
+// `;
 
 const UploadForm = () => {
   return (
-    <div>
+    <StyledDiv>
       <form>
         <div>
           <label htmlFor="art">
@@ -39,10 +52,8 @@ const UploadForm = () => {
             This art was inspired by the weekly prompt
           </label>
         </div>
-
-        <button type="button">Submit</button>
       </form>
-    </div>
+    </StyledDiv>
   );
 };
 
