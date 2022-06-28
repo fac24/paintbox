@@ -1,8 +1,25 @@
 import UploadForm from "../components/upload/UploadForm";
 
+import { supabase } from "../utils/supabaseClient";
+
 function Upload() {
   async function addDataHandler(inputs) {
-    console.log(inputs);
+    const { data, error } = await supabase
+      .from("arts")
+      .insert([
+        {
+          mood: inputs.mood,
+          alt: inputs.alt,
+          caption: inputs.caption,
+          public: inputs.public,
+          prompt: inputs.prompt,
+          img: "",
+        },
+      ])
+      .then((data) => {
+        return data;
+      });
+    console.log(data);
   }
 
   return (
