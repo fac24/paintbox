@@ -1,7 +1,4 @@
 import UploadForm from "../components/upload/UploadForm";
-// import IndexPage from "../components/upload/UploadForm";
-// import React, { useState } from "react";
-// import Head from "next/head";
 
 function Upload() {
   return (
@@ -12,10 +9,8 @@ function Upload() {
         you can store them in your MentArt Journal.
       </p>
       <UploadForm />
-      {/* <IndexPage /> */}
     </section>
   );
 }
 
 export default Upload;
-// export default Upload;
