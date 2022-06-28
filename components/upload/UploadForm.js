@@ -1,6 +1,7 @@
 // import styled from "styled-components";
 
 import StyledDiv from "../styled-components/StyledDiv";
+import StyledSubmitButton from "../styled-components/StyledSubmitButton";
 
 // const StyledDiv = styled.div`
 //   display: flex;
@@ -52,6 +53,8 @@ const UploadForm = () => {
             This art was inspired by the weekly prompt
           </label>
         </div>
+        {/* styled component button */}
+        <StyledSubmitButton>Submit</StyledSubmitButton>
       </form>
     </StyledDiv>
   );
