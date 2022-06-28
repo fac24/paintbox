@@ -17,8 +17,8 @@ function Upload() {
       <StyledDiv>
         {/* upload page component */}
         <UploadForm />
-        {/* styled component button */}
-        <StyledSubmitButton>Submit</StyledSubmitButton>
+        {/* styled component button
+        <StyledSubmitButton>Submit</StyledSubmitButton> */}
       </StyledDiv>
     </ArtShareEmotionUpload>
     // </section>
