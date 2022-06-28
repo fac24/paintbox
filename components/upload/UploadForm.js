@@ -60,6 +60,19 @@ function UploadForm(props) {
         <div>
           <input
             type="checkbox"
+            id="visibility"
+            name="visibility"
+            value="true"
+            ref={visibilityInput}
+          />
+          <label htmlFor="visibility">
+            Set the visibility of your upload PUBLIC
+          </label>
+        </div>
+
+        <div>
+          <input
+            type="checkbox"
             id="prompt"
             name="prompt"
             value="true"
@@ -74,6 +87,6 @@ function UploadForm(props) {
       </form>
     </StyledDiv>
   );
-};
+}
 
 export default UploadForm;
