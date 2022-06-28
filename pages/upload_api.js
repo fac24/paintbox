@@ -22,3 +22,20 @@ const apiRoute = nextConnect({
     res.status(501).json({ error: `oopsie something does not compute` });
   },
 });
+
+// uploading a single file.
+apiRoute.use(upload.single("artUpload"));
+
+// now we need to post method to send and post the art.
+apiRoute.post((req, res) => {
+  res.status(200).json({ data: "yaaaay congrats it worked" });
+});
+
+export default apiRoute;
+
+// so that the body parser isn't posted on the page.
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
