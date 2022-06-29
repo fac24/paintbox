@@ -1,3 +1,6 @@
+
+import StyledDiv from "../styled-components/StyledDiv";
+import StyledSubmitButton from "../styled-components/StyledSubmitButton";
 import { useRef, useState } from "react";
 import Image from "next/image";
 
@@ -67,7 +70,7 @@ function UploadForm(props) {
   }
 
   return (
-    <div>
+    <StyledDiv>
       <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="art">
@@ -131,10 +134,10 @@ function UploadForm(props) {
             This art was inspired by the weekly prompt
           </label>
         </div>
-
-        <button>Submit</button>
+        {/* styled component button */}
+        <StyledSubmitButton>Submit</StyledSubmitButton>
       </form>
-    </div>
+    </StyledDiv>
   );
 }
 
