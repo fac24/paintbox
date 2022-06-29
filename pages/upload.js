@@ -1,5 +1,5 @@
 import UploadForm from "../components/upload/UploadForm";
-
+import PromptWord from "../components/prompt/PromptWord";
 function Upload() {
   return (
     <section>
