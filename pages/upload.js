@@ -1,7 +1,9 @@
+import UploadForm from "../components/upload/UploadForm";
+import MoodCollection from "../components/filter/MoodCollection";
+
 import StyledDiv from "../components/styled-components/StyledDiv";
 import StyledSubmitButton from "../components/styled-components/StyledSubmitButton";
 import ArtShareEmotionUpload from "../components/styled-components/ArtShareEmotionUpload";
-import UploadForm from "../components/upload/UploadForm";
 
 import { supabase } from "../utils/supabaseClient";
 
@@ -16,7 +18,7 @@ function Upload() {
           caption: inputs.caption,
           public: inputs.public,
           prompt: inputs.prompt,
-          img: "",
+          img: inputs.img,
         },
       ])
       .then((data) => {
@@ -36,15 +38,10 @@ function Upload() {
       {/* </ArtShareEmotionUpload> */}
       {/* container div for the upload form wrapping over the other components */}
       <StyledDiv>
-        {/* upload page component */}
         <UploadForm addData={addDataHandler} />
-        {/* styled component button
-        <StyledSubmitButton>Submit</StyledSubmitButton> */}
+        {/* styled component button <StyledSubmitButton>Submit</StyledSubmitButton> */}
       </StyledDiv>
     </ArtShareEmotionUpload>
-    // </section>
-    //   <UploadForm addData={addDataHandler} />
-    // </section>
   );
 }
 
