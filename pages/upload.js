@@ -2,8 +2,9 @@ import StyledDiv from "../components/styled-components/StyledDiv";
 import StyledSubmitButton from "../components/styled-components/StyledSubmitButton";
 import ArtShareEmotionUpload from "../components/styled-components/ArtShareEmotionUpload";
 import UploadForm from "../components/upload/UploadForm";
-
+import PromptWord from "../components/prompt/PromptWord";
 import { supabase } from "../utils/supabaseClient";
+
 
 function Upload() {
   async function addDataHandler(inputs) {

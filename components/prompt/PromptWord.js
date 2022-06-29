@@ -1,11 +1,25 @@
 import React from "react";
+import Link from "next/link";
 import { FaCloudUploadAlt } from "react-icons/fa";
-import { CgMoreVerticalO } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
+
+
 function PromptWord() {
   const [open, setOpen] = React.useState(false);
   function toggleOpen() {
     setOpen(!open);
   }
+
+  // button redirect
+  // eslint-disable-next-line react/display-name
+  const RedirectButton = React.forwardRef(({ onClick, href }, ref) => {
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <FaCloudUploadAlt />
+      </a>
+    );
+  });
+
 
   const moreInfo = !open ? null : (
     <div>
@@ -27,12 +41,18 @@ function PromptWord() {
     <div>
       <h3>Weekly Prompt</h3>
       <h4>Prompt word goes here</h4>
-      <FaCloudUploadAlt />
+
+      {/* upload button */}
+      <Link href="/upload" passHref>
+        <RedirectButton />
+      </Link>
+      {/* expanding text button */}
       <button onClick={toggleOpen}>
-         <CgMoreVerticalO />
+        <FaAngleDown />
       </button>
       {moreInfo}
-     </div>
+    </div>
+
   );
 }
 
