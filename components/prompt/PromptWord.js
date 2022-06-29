@@ -1,7 +1,6 @@
 import React from "react";
-import { FaUpload } from "react-icons/fa";
-
-
+import { FaCloudUploadAlt } from "react-icons/fa";
+import { CgMoreVerticalO } from "react-icons/fa";
 function PromptWord() {
   const [open, setOpen] = React.useState(false);
   function toggleOpen() {
@@ -26,14 +25,14 @@ function PromptWord() {
   );
   return (
     <div>
-      <h2>Weekly Prompt</h2>
-      <h3>Prompt word goes here</h3>
-      <FaUpload />
+      <h3>Weekly Prompt</h3>
+      <h4>Prompt word goes here</h4>
+      <FaCloudUploadAlt />
       <button onClick={toggleOpen}>
-        More info
+         <CgMoreVerticalO />
       </button>
       {moreInfo}
-    </div>
+     </div>
   );
 }
 
