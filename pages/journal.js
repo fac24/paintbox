@@ -2,6 +2,15 @@ import JournalFeed from "../components/journal/JournalFeed";
 
 import { supabase } from "../utils/supabaseClient";
 
+function Journal(props) {
+  return (
+    <div>
+      <h2>MentArt Journal</h2>
+      <JournalFeed arts={props.arts} />
+    </div>
+  );
+}
+
 export async function getStaticProps() {
   const { data, error } = await supabase.from("arts").select();
 
@@ -10,15 +19,6 @@ export async function getStaticProps() {
       arts: data,
     },
   };
-}
-
-function Journal(props) {
-  return (
-    <div>
-      <h2>MentArt Journal</h2>
-      <JournalFeed arts={props.arts} />
-    </div>
-  );
 }
 
 export default Journal;

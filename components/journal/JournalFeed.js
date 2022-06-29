@@ -12,8 +12,9 @@ function JournalFeed(props) {
         return (
           <li key={art.id}>
             <h3>{art.mood}</h3>
+            <p>{art.date}</p>
             <img src={art.img} alt={art.alt} />
-            <p>{art.description}</p>
+            <p>{art.caption}</p>
             <button onClick={() => router.push(href)}>Open...</button>
           </li>
         );
