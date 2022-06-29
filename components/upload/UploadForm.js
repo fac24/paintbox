@@ -1,7 +1,7 @@
-
 import StyledDiv from "../styled-components/StyledDiv";
 import StyledSubmitButton from "../styled-components/StyledSubmitButton";
 import { useRef, useState } from "react";
+import ArtUploadImage from "../styled-components/ArtUploadImage";
 import Image from "next/image";
 
 function UploadForm(props) {
@@ -85,7 +85,7 @@ function UploadForm(props) {
             onChange={previewHandler}
             required
           />
-          <img
+          <ArtUploadImage
             src={imageSrc}
             alt="preview uploaded image"
             width={200}
