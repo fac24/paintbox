@@ -3,7 +3,6 @@ import Image from "next/image";
 
 function UploadForm(props) {
   const [imageSrc, setImageSrc] = useState("");
-  const [uploadData, setUploadData] = useState();
 
   const artInput = useRef();
   const moodInput = useRef();
@@ -11,7 +10,7 @@ function UploadForm(props) {
   const visibilityInput = useRef();
   const promptInput = useRef();
 
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
 
     const selectedArt = artInput.current.value;
@@ -21,16 +20,39 @@ function UploadForm(props) {
     const checkedPrompt = promptInput.current.checked;
     const altText = `art representing the mood ${enteredMood}`;
 
+    //console.log(artInput.current.files);
+
+    const cloudinaryData = {
+      file: artInput.current.files[0],
+      upload_preset: "paintbox",
+    };
+
+    const formData = new FormData();
+    formData.append("file", artInput.current.files[0]);
+    formData.append("upload_preset", "paintbox");
+
+    const cloudinary = await fetch(
+      "https://api.cloudinary.com/v1_1/du8mr1tpj/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    ).then((response) => response.json());
+
+    console.log(cloudinary);
+
+    setImageSrc(cloudinary.secure_url);
+
     const inputData = {
       mood: enteredMood,
       alt: altText,
       caption: enteredDescription,
       public: checkedVisibility,
       prompt: checkedPrompt,
-      img: selectedArt,
+      img: cloudinary.secure_url,
     };
 
-    props.addData(inputData);
+    //props.addData(inputData);
   }
 
   function previewHandler(display) {
@@ -38,7 +60,6 @@ function UploadForm(props) {
 
     reader.onload = function (onLoadEvent) {
       setImageSrc(onLoadEvent.target.result);
-      setUploadData(undefined);
     };
 
     reader.readAsDataURL(display.target.files[0]);
@@ -56,6 +77,7 @@ function UploadForm(props) {
             type="file"
             id="art"
             name="art"
+            accept="image/png, image/jpeg, image/jpg"
             ref={artInput}
             onChange={previewHandler}
             required
