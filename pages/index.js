@@ -1,4 +1,11 @@
+import Affirmation from "../components/affirmation/Affirmation";
+ 
  export default function Hello() {
-  return  <h1>Hello!</h1>
+  return( 
+ <div>
+  <h1>Hello!</h1>
+  <Affirmation/>
+</div>
+  );
  }
 

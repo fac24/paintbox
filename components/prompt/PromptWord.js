@@ -3,11 +3,13 @@ import Link from "next/link";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 
+
 function PromptWord() {
   const [open, setOpen] = React.useState(false);
   function toggleOpen() {
     setOpen(!open);
   }
+
   // button redirect
   // eslint-disable-next-line react/display-name
   const RedirectButton = React.forwardRef(({ onClick, href }, ref) => {
@@ -17,6 +19,7 @@ function PromptWord() {
       </a>
     );
   });
+
 
   const moreInfo = !open ? null : (
     <div>
@@ -38,6 +41,7 @@ function PromptWord() {
     <div>
       <h3>Weekly Prompt</h3>
       <h4>Prompt word goes here</h4>
+
       {/* upload button */}
       <Link href="/upload" passHref>
         <RedirectButton />
@@ -48,6 +52,7 @@ function PromptWord() {
       </button>
       {moreInfo}
     </div>
+
   );
 }
 
