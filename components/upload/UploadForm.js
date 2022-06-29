@@ -1,6 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 
 function UploadForm(props) {
+  const [imageSrc, setImageSrc] = useState("");
+  const [uploadData, setUploadData] = useState();
+
   const artInput = useRef();
   const moodInput = useRef();
   const descriptionInput = useRef();
@@ -29,6 +33,18 @@ function UploadForm(props) {
     props.addData(inputData);
   }
 
+  function previewHandler(display) {
+    const reader = new FileReader();
+
+    reader.onload = function (onLoadEvent) {
+      setImageSrc(onLoadEvent.target.result);
+      setUploadData(undefined);
+    };
+
+    reader.readAsDataURL(display.target.files[0]);
+    console.log(reader);
+  }
+
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -36,7 +52,20 @@ function UploadForm(props) {
           <label htmlFor="art">
             Select the piece of art you would like to share
           </label>
-          <input type="file" id="art" name="art" ref={artInput} required />
+          <input
+            type="file"
+            id="art"
+            name="art"
+            ref={artInput}
+            onChange={previewHandler}
+            required
+          />
+          <img
+            src={imageSrc}
+            alt="preview uploaded image"
+            width={200}
+            height={200}
+          />
         </div>
 
         <div>
