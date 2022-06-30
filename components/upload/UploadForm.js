@@ -37,7 +37,7 @@ function UploadForm(props) {
 
     setImageSrc(cloudinary.secure_url);
 
-    const inputData = {
+    const inputArtData = {
       mood: enteredMood,
       alt: altText,
       caption: enteredDescription,
@@ -46,7 +46,7 @@ function UploadForm(props) {
       img: cloudinary.secure_url,
     };
 
-    props.addData(inputData);
+    props.addArtData(inputArtData);
   }
 
   function previewHandler(display) {
@@ -57,7 +57,6 @@ function UploadForm(props) {
     };
 
     reader.readAsDataURL(display.target.files[0]);
-    console.log(reader);
   }
 
   return (

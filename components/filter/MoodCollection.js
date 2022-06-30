@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { supabase } from "../../utils/supabaseClient";
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   const { data, error } = await supabase.from("moods").select();
 
   return {
@@ -10,18 +10,27 @@ export async function getStaticProps() {
       moods: data,
     },
   };
-}
+} */
 
-function MoodCollection(props) {
-  const [moodArray, setMoodArray] = useState();
+function MoodCollection() {
+  const [moodArray, setMoodArray] = useState([]);
 
   useEffect(() => {
-    const moods = props.moods;
-    const getMoodsArray = moods.map((mood) => mood.mood);
+    async function getMoods() {
+      const { data, error } = await supabase
+        .from("moods")
+        .select()
+        .then((data) => {
+          return data;
+        });
 
-    setMoodArray(getMoodsArray);
-  }, [props.moods]);
-  console.log(moodArray);
+      const getArray = data.map((element) => element.mood);
+
+      setMoodArray(getArray);
+    }
+    getMoods();
+  }, []);
+
   return [moodArray];
 }
 
