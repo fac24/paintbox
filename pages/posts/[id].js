@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
-
 import { supabase } from "../../utils/supabaseClient";
 
 function Post({ post }) {
