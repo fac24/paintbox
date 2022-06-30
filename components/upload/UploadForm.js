@@ -85,6 +85,7 @@ function UploadForm(props) {
             onChange={previewHandler}
             required
           />
+          <p>Preview:</p>
           <ArtUploadImage
             src={imageSrc}
             alt="preview uploaded image"
