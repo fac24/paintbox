@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
 
 import { supabase } from "../../utils/supabaseClient";
 
@@ -15,7 +16,7 @@ function Post({ post }) {
       <div>
         <h3>{post[0].mood}</h3>
         <p>{post[0].date}</p>
-        <img src={post[0].img} alt={post[0].alt} />
+        <ArtUploadImage src={post[0].img} alt={post[0].alt} />
         <p>{post[0].caption}</p>
       </div>
     </section>
