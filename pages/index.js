@@ -1,4 +1,16 @@
+import Affirmation from "../components/affirmation/Affirmation";
+import Navbar from "../components/navbar/Navbar"; 
+
  export default function Hello() {
-  return  <h1>Hello!</h1>
+  return( 
+ <div>
+  <header>
+    <h1>Paintbox</h1>
+  </header>
+  <Affirmation/>
+  <Navbar/>
+</div>
+  );
  }
+
 
