@@ -40,7 +40,7 @@ export async function getStaticProps({ params }) {
     .eq("id", params.id);
   const post = await data;
 
-  return { props: { post } };
+  return { props: { post }, revalidate: 5 };
 }
 
 export default Post;
