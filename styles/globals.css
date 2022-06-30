@@ -37,11 +37,12 @@ a {
   transform: rotateX(180deg);
 }
 
-.flip_box_front, .flip_box_back {
+.flip_box_front,
+.flip_box_back {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -60,4 +61,29 @@ a {
   transform: rotateX(180deg);
   text-align: center;
   padding: 50px 0;
+}
+
+/* navigation menu */
+.navbar {
+  background-color: #555;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 20%;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
 }
