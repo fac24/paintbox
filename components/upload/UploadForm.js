@@ -1,8 +1,8 @@
+import { useRef, useState } from "react";
+
 import StyledDiv from "../styled-components/StyledDiv";
 import StyledSubmitButton from "../styled-components/StyledSubmitButton";
-import { useRef, useState } from "react";
 import ArtUploadImage from "../styled-components/ArtUploadImage";
-import Image from "next/image";
 
 function UploadForm(props) {
   const [imageSrc, setImageSrc] = useState("");
@@ -16,22 +16,15 @@ function UploadForm(props) {
   async function submitHandler(event) {
     event.preventDefault();
 
-    const selectedArt = artInput.current.value;
+    const selectedArt = artInput.current.files[0];
     const enteredMood = moodInput.current.value;
     const enteredDescription = descriptionInput.current.value;
     const checkedVisibility = visibilityInput.current.checked;
     const checkedPrompt = promptInput.current.checked;
     const altText = `art representing the mood ${enteredMood}`;
 
-    //console.log(artInput.current.files);
-
-    const cloudinaryData = {
-      file: artInput.current.files[0],
-      upload_preset: "paintbox",
-    };
-
     const formData = new FormData();
-    formData.append("file", artInput.current.files[0]);
+    formData.append("file", selectedArt);
     formData.append("upload_preset", "paintbox");
 
     const cloudinary = await fetch(
@@ -42,11 +35,9 @@ function UploadForm(props) {
       }
     ).then((response) => response.json());
 
-    console.log(cloudinary);
-
     setImageSrc(cloudinary.secure_url);
 
-    const inputData = {
+    const inputArtData = {
       mood: enteredMood,
       alt: altText,
       caption: enteredDescription,
@@ -55,7 +46,7 @@ function UploadForm(props) {
       img: cloudinary.secure_url,
     };
 
-    //props.addData(inputData);
+    props.addArtData(inputArtData);
   }
 
   function previewHandler(display) {
@@ -66,7 +57,6 @@ function UploadForm(props) {
     };
 
     reader.readAsDataURL(display.target.files[0]);
-    console.log(reader);
   }
 
   return (
@@ -135,7 +125,6 @@ function UploadForm(props) {
             This art was inspired by the weekly prompt
           </label>
         </div>
-        {/* styled component button */}
         <StyledSubmitButton>Submit</StyledSubmitButton>
       </form>
     </StyledDiv>
