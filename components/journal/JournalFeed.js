@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import ArtUploadImage from "../styled-components/ArtUploadImage";
+// import ArtUploadImage from "../styled-components/ArtUploadImage";
+import JournalImage from "../styled-components/JournalImage";
 import MentartWrapper from "../styled-components/MentartWrapper";
 
 function JournalFeed(props) {
@@ -15,7 +16,7 @@ function JournalFeed(props) {
           <li key={art.id}>
             <h3>{art.mood}</h3>
             <p>{art.date}</p>
-            <ArtUploadImage src={art.img} alt={art.alt} />
+            <JournalImage src={art.img} alt={art.alt} />
             <p>{art.caption}</p>
             <button onClick={() => router.push(href)}>Open...</button>
           </li>
