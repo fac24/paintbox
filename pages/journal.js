@@ -1,5 +1,5 @@
 import JournalFeed from "../components/journal/JournalFeed";
-import WholeJournalToTheRainbow from "../components/styled-components/WholeJournalToTheRainbow";
+import WholeJournalToTheRainbowTitle from "../components/styled-components/WholeJournalToTheRainbowTitle";
 import MoodPost from "../components/styled-components/MoodPost";
 // import MentartWrapper from "../components/styled-components/MoodPost";
 import { supabase } from "../utils/supabaseClient";
@@ -8,7 +8,9 @@ import { supabase } from "../utils/supabaseClient";
 function Journal(props) {
   return (
     <div>
-      <WholeJournalToTheRainbow>MentArt Journal</WholeJournalToTheRainbow>
+      <WholeJournalToTheRainbowTitle>
+        MentArt Journal
+      </WholeJournalToTheRainbowTitle>
       <JournalFeed arts={props.arts} />
     </div>
   );
