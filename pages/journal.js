@@ -8,9 +8,7 @@ import { supabase } from "../utils/supabaseClient";
 function Journal(props) {
   return (
     <div>
-      <WholeJournalToTheRainbow>
-        <h2>MentArt Journal</h2>
-      </WholeJournalToTheRainbow>
+      <WholeJournalToTheRainbow>MentArt Journal</WholeJournalToTheRainbow>
       <JournalFeed arts={props.arts} />
     </div>
   );
