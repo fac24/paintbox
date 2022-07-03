@@ -1,12 +1,14 @@
 import JournalFeed from "../components/journal/JournalFeed";
-
+import MoodPost from "../components/styled-components/MoodPost";
 import { supabase } from "../utils/supabaseClient";
 
 function Journal(props) {
   return (
     <div>
       <h2>MentArt Journal</h2>
-      <JournalFeed arts={props.arts} />
+      <MoodPost>
+        <JournalFeed arts={props.arts} />
+      </MoodPost>
     </div>
   );
 }
