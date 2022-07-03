@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import ArtUploadImage from "../styled-components/ArtUploadImage"
+import ArtUploadImage from "../styled-components/ArtUploadImage";
+import MentartWrapper from "../styled-components/MentartWrapper";
 
 function JournalFeed(props) {
   const router = useRouter();
@@ -7,7 +8,7 @@ function JournalFeed(props) {
   const allArts = props.arts;
 
   return (
-    <ul>
+    <MentartWrapper>
       {allArts.map((art) => {
         const href = `/posts/${art.id}`;
         return (
@@ -20,7 +21,7 @@ function JournalFeed(props) {
           </li>
         );
       })}
-    </ul>
+    </MentartWrapper>
   );
 }
 
