@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 const MentartWrapper = styled.ul`
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 3.5rem 0px;
-  border-top: 4px solid rgba(255, 255, 255, 0.2);
+    appearance: none;
+    background: transparent;
+    border: 0px;
+    display: block;
+    margin: 0px;
+    min-width: 0px;
+    padding: 0px;
+    position: relative;
+    text-align: inherit;
+}
 `;
 
 export default MentartWrapper;
