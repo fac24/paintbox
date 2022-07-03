@@ -4,15 +4,21 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* height: 100vh; */
 }
 
 html {
+  /* height: 100vh; */
   background-color: var(--deep-soothing-ocean);
 }
 
 :root {
   --deep-soothing-ocean: #8794ca;
   --lilly-lilac: #c8a2c8;
+  --aubergine-purple: #390917;
+  --salmon-pink: palevioletred;
+  --clear-white: #ddd;
+  --purple-supreme: #784890;
 }
 
 a {
@@ -72,7 +78,7 @@ a {
   padding: 50px 0;
 }
 
-/* navigation menu */
+/* navigation menu
 .navbar {
   background-color: #555;
   position: fixed;
@@ -96,3 +102,4 @@ a {
   background: #ddd;
   color: black;
 }
+ */
