@@ -6,6 +6,15 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+html {
+  background-color: var(--deep-soothing-ocean);
+}
+
+:root {
+  --deep-soothing-ocean: #8794ca;
+  --lilly-lilac: #c8a2c8;
+}
+
 a {
   color: inherit;
   text-decoration: none;
