@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const RainbowBorder = styled.div`
   --borderWidth: 10px;
-  background: #8794ca;
+  background: var(--lilly-lilac);
   position: relative;
   margin: 5rem auto;
   max-width: 40rem;
