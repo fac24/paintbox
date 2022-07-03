@@ -1,14 +1,17 @@
 import JournalFeed from "../components/journal/JournalFeed";
+import WholeJournalToTheRainbow from "../components/styled-components/WholeJournalToTheRainbow";
 import MoodPost from "../components/styled-components/MoodPost";
+// import MentartWrapper from "../components/styled-components/MoodPost";
 import { supabase } from "../utils/supabaseClient";
+// import RainbowBorder from "../components/styled-components/RainbowBorder";
 
 function Journal(props) {
   return (
     <div>
-      <h2>MentArt Journal</h2>
-      <MoodPost>
-        <JournalFeed arts={props.arts} />
-      </MoodPost>
+      <WholeJournalToTheRainbow>
+        <h2>MentArt Journal</h2>
+      </WholeJournalToTheRainbow>
+      <JournalFeed arts={props.arts} />
     </div>
   );
 }
