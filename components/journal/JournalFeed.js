@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-// import DescriptionContainer from "../styled-components/DescriptionContainer";
+import ListBox from "../styled-components/ListBox";
 // import ArtUploadImage from "../styled-components/ArtUploadImage";
 // import WholeJournalWrapper from "../styled-components/WholeJournalWrapper";
 import ChoiceOfMood from "../styled-components/ChoiceOfMood";
@@ -26,12 +26,12 @@ function JournalFeed(props) {
                   {art.date}
                   <JournalImage src={art.img} alt={art.alt} />
                 </p>
-                <li>
+                <ListBox>
                   {/* <DescriptionContainer key={art.id}> */}
                   <ChoiceOfMood>{art.mood}</ChoiceOfMood>
                   <p>{art.caption}</p>
                   <button onClick={() => router.push(href)}>Open...</button>
-                </li>
+                </ListBox>
               </MoodPost>
             </RainbowBorder>
           </>
