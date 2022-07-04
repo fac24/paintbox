@@ -33,7 +33,7 @@ export const NavBar = styled.nav`
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    width: 20%;
+    width: 16.6%;
   }
 
   a:hover {
