@@ -4,6 +4,8 @@ import Affirmation from "../components/affirmation/Affirmation";
 function Landing() {
   const { data: session } = useSession(); //renamed data to session
 
+  console.log(session);
+
   return (
     <div>
       <section>
