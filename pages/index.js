@@ -9,7 +9,7 @@ function Landing() {
       <section>
         {session ? (
           <div>
-            <p>Signed in as {session.user.email}</p>
+            <p>Logged in as {session.user.email}</p>
             <button onClick={signOut}>Log Out</button>
           </div>
         ) : (
