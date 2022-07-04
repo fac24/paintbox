@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const WholeJournalToTheRainbowTitle = styled.h2`
+  color: var(--aubergine-purple);
   margin-left: auto;
   margin-right: auto;
   max-width: 40rem;
