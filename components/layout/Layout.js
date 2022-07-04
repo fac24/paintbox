@@ -2,21 +2,34 @@ import Nav from "./Nav";
 import PaintboxSparkleLogoImage from "../styled-components/PaintboxSparkleLogoImage";
 // import Image from "next/image";
 // import paintbox from "public/Sparkle-paintbox.png";
+import styled from "styled-components";
 
 function Layout(props) {
   return (
     <div>
-      <PaintboxSparkleLogoImage
-        src="/Sparkle-paintbox.png"
-        alt="paintbox-logo"
-      />
-      <header>
-        <h1>Paintbox</h1>
-        <Nav />
-      </header>
+      <Header>
+        <PaintboxSparkleLogoImage
+          src="/Sparkle-paintbox.png"
+          alt="paintbox-logo"
+        />
+        <Title>Paintbox</Title>
+      </Header>
       <main>{props.children}</main>
+      <Nav />
     </div>
   );
 }
 
 export default Layout;
+
+export const Title = styled.h1`
+  text-align: center;
+  color: var(--aubergine-purple);
+`;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
