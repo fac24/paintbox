@@ -1,9 +1,11 @@
 import Affirmation from "../components/affirmation/Affirmation";
 
-export default function Hello() {
+function Landing() {
   return (
     <div>
       <Affirmation />
     </div>
   );
 }
+
+export default Landing;
