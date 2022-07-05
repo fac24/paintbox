@@ -23,15 +23,18 @@ function AddComment() {
       })
       .then((data) => {
         return data;
+      })
+      .catch((error) => {
+        console.log(error);
       });
 
-    if (!error && data) {
-      // If succeed
-      window.alert("Hooray!");
-    } else {
-      // If failed
-      window.alert(error?.message);
-    }
+    // if (!error && data) {
+    //   // If succeed
+    //   window.alert("Hooray!");
+    // } else {
+    //   // If failed
+    //   window.alert(error?.message);
+    // }
   }
   // selecting comment from database
   async function getCommentList() {
@@ -39,6 +42,8 @@ function AddComment() {
 
     const { data, error } = await supabase
       .from("comments")
+      // .select('`content`, public.arts!inner(`content`)')
+      // .eq('public.arts.id', '6')
       .select(`content`)
       .then((data) => {
         return data;
