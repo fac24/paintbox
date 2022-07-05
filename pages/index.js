@@ -1,19 +1,4 @@
-// import { axios } from "axios";
-
-// import Login from "./login";
-
-//  export default function Hello() {
-//   return(
-//  <div>
-//   <header>
-//     <h1>Paintbox</h1>
-//   </header>
-//   <Affirmation/>
-//   <Navbar/>
-//   <Login/>
-// </div>
-//   );
-//  }
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import Affirmation from "../components/affirmation/Affirmation";
 
@@ -27,7 +12,11 @@ import { Context } from "../context";
 
 import { useRouter } from "next/router";
 
-const Auth = (props) => {
+function Landing() {
+  const { data: session } = useSession(); //renamed data to session
+
+  console.log(session);
+
   console.log(props);
   const { username, setUsername, secret, setSecret } = useContext(Context);
 
@@ -58,20 +47,20 @@ const Auth = (props) => {
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
 
-//1) create a next.js API route (maybe call it chatengine-users) and copy the fetch() call into the api route. Inside the api route, call respond.send() when your chat engine api fetch resolves. Note that there will be two "response" objects - the response form the chat engine fetch call and the response sent back to the frontend from your api route. Name these separately!!! (one could be chatEngineResponse)
-
-
-//2) modify the frontend fetch url with the url of your api route. it can stay as a put request.
-
-    return (
-      <div>
-        <header>
-          <h1>Paintbox</h1>
-        </header>
-        <Affirmation />
-        {/* <Navbar/> */}
-
-        <ChatEngine
+  return (
+    <div>
+      <section>
+        {session ? (
+          <div>
+            <p>Logged in as {session.user.email}</p>
+            <button onClick={signOut}>Log Out</button>
+          </div>
+        ) : (
+          <button onClick={signIn}>Login</button>
+        )}
+      </section>
+      <Affirmation />
+      <ChatEngine
           height="100vh"
           userName="asmahan@gmail.com"
           userSecret="asmahan"
@@ -110,9 +99,9 @@ const Auth = (props) => {
             </form>
           </div>
         </div>
-      </div>
-    );
-  }
-};
+    </div>
+  );
+}
+}
 
-export default Auth;
+export default Landing;
