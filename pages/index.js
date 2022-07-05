@@ -1,14 +1,15 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+// import { signIn, signOut, useSession } from "next-auth/react";
 import Affirmation from "../components/affirmation/Affirmation";
 
-function Landing() {
-  const { data: session } = useSession(); //renamed data to session
 
-  console.log(session);
+function Landing() {
+  // const { data: session } = useSession(); //renamed data to session
+
+  // console.log(session);
 
   return (
     <div>
-      <section>
+       {/* <section>
         {session ? (
           <div>
             <p>Logged in as {session.user.email}</p>
@@ -17,8 +18,8 @@ function Landing() {
         ) : (
           <button onClick={signIn}>Login</button>
         )}
-      </section>
-      <Affirmation />
+      </section> */}
+      <Affirmation /> 
     </div>
   );
 }

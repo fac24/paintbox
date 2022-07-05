@@ -21,6 +21,7 @@ function JournalFeed(props) {
         );
       })}
     </ul>
+
   );
 }
 

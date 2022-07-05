@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
-
 import { supabase } from "../../utils/supabaseClient";
+import Comments from "../../components/comments/Comments";
+
+
 
 function Post({ post }) {
   const router = useRouter();
@@ -12,13 +14,14 @@ function Post({ post }) {
 
   return (
     <section>
-      <h2>Art Post</h2>
+      {/* <h2>Art Post</h2>
       <div>
         <h3>{post[0].mood}</h3>
         <p>{post[0].date}</p>
         <ArtUploadImage src={post[0].img} alt={post[0].alt} />
         <p>{post[0].caption}</p>
-      </div>
+      </div> */}
+      <Comments />
     </section>
   );
 }
