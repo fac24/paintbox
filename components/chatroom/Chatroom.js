@@ -16,7 +16,9 @@ const MessageFormSocial = dynamic(() =>
 export default function ChatroomHome() {
   const { username, secret } = useContext(Context);
   const [showChat, setShowChat] = useState(false);
+  console.log([showChat, setShowChat]);
   const router = useRouter();
+  console.log(router);
 
   useEffect(() => {
     if (typeof document !== undefined) {
