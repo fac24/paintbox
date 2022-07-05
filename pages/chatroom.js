@@ -1,11 +1,11 @@
-import ChatroomHome from "../components/chatroom/Chatroom";
+import CommunityChat from "../components/chatroom/Chatroom";
 
-function CommunityChat() {
+function Chatroom() {
     return (
       <section>
-        <ChatroomHome />
+        <CommunityChat />
       </section>
     );
   }
-  export default CommunityChat;
+  export default Chatroom;
   
