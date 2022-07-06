@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
   background-color: pink;
   margin-left: auto;
   margin-right: auto;
-  max-width: 20rem;
+  max-width: 40rem;
 `;
 
 export default StyledDiv;
