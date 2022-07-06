@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 
-
 function PromptWord() {
   const [open, setOpen] = React.useState(false);
   function toggleOpen() {
@@ -19,7 +18,6 @@ function PromptWord() {
       </a>
     );
   });
-
 
   const moreInfo = !open ? null : (
     <div>
@@ -52,7 +50,6 @@ function PromptWord() {
       </button>
       {moreInfo}
     </div>
-
   );
 }
 
