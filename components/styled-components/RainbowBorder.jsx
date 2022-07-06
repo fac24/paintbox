@@ -43,6 +43,12 @@ const RainbowBorder = styled.div`
       background-position: 0% 50%;
     }
   }
+
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    margin: 4rem;
+    max-width: 25rem;
+  }
 `;
 
 export default RainbowBorder;
