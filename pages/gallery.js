@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import FilterNav from "../components/filter/FilterNav";
 
 import { supabase } from "../utils/supabaseClient";
+import SelectArts from "../components/art-posts/SelectArts";
 
 function Gallery(props) {
   const [mood, setMood] = useState("all");
@@ -36,7 +37,7 @@ function Gallery(props) {
 }
 
 export async function getServerSideProps({ req }) {
-  const arts = await supabase.from("arts").select();
+  const arts = await supabase.from("arts").select().eq("public", "true");
   const moods = await supabase.from("moods").select();
 
   const user = (await supabase.auth.api.getUserByCookie(req)) || [];
