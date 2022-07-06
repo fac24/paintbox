@@ -2,16 +2,6 @@ import { useState, useEffect } from "react";
 
 import { supabase } from "../../utils/supabaseClient";
 
-/* export async function getStaticProps() {
-  const { data, error } = await supabase.from("moods").select();
-
-  return {
-    props: {
-      moods: data,
-    },
-  };
-} */
-
 function MoodCollection() {
   const [moodArray, setMoodArray] = useState([]);
 
