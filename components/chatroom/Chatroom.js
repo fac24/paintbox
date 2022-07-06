@@ -12,7 +12,7 @@
 // fetch request -> taking the username and secret
 
 import { useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 function CommunityChat() {
   const [username, setUsername] = useState("");
