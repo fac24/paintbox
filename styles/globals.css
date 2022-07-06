@@ -5,15 +5,18 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   /* height: 100vh; */
+  justify-content: center;
+  max-width: 30rem;
 }
 
 html {
   /* height: 100vh; */
-  background-color: var(--deep-soothing-ocean);
+  background-color: var(--calm-greyish-white);
 }
 
 :root {
   --deep-soothing-ocean: #8794ca;
+  --calm-greyish-white: #c7c7c7;
   --lilly-lilac: #c8a2c8;
   --aubergine-purple: #390917;
   --salmon-pink: palevioletred;
