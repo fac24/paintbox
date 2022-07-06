@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
-import ArtUploadImage from "../styled-components/ArtUploadImage"
+import ArtUploadImage from "../styled-components/ArtUploadImage";
 
 function JournalFeed(props) {
   const router = useRouter();
 
-  const allArts = props.arts;
+  const allArts = props.arts || [];
+
+  console.log(allArts);
 
   return (
     <ul>

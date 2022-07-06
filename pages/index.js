@@ -1,26 +1,36 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useState } from "react";
+
 import Affirmation from "../components/affirmation/Affirmation";
+import PromptWord from "../components/prompt/PromptWord";
 
-function Landing() {
-  const { data: session } = useSession(); //renamed data to session
+import { supabase } from "../utils/supabaseClient";
 
-  console.log(session);
+function Home() {
+  const [sessionId, setSessionId] = useState(supabase.auth.session() || "");
 
   return (
     <div>
       <section>
-        {session ? (
-          <div>
-            <p>Logged in as {session.user.email}</p>
-            <button onClick={signOut}>Log Out</button>
-          </div>
-        ) : (
-          <button onClick={signIn}>Login</button>
-        )}
+        <PromptWord />
       </section>
-      <Affirmation />
+      <section>
+        <Affirmation />
+      </section>
     </div>
   );
 }
 
-export default Landing;
+export async function getServerSideProps(context) {
+  const user = (await supabase.auth.api.getUserByCookie(context.req)) || [];
+
+  if (!user.user) {
+    return { props: {}, redirect: { destination: "/login" } };
+  }
+
+  return {
+    props: {
+      user: user.user,
+    },
+  };
+}
+export default Home;
