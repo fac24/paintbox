@@ -23,7 +23,7 @@ export const NavBar = styled.nav`
   z-index: 99;
   bottom: 0;
   width: 100%;
-  overflow: auto;
+  overflow: scroll;
 
   nav,
   a {
