@@ -3,7 +3,6 @@ import styled from "styled-components";
 const PaintboxSparkleLogoImage = styled.img`
   display: flex;
   flex-wrap: wrap;
-  //   flex-direction: column;
   width: 100%;
   height: auto%;
   align-items: center;
