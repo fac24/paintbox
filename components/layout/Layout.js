@@ -22,12 +22,12 @@ function Layout(props) {
 
 export default Layout;
 
-export const Title = styled.h1`
+const Title = styled.h1`
   text-align: center;
   color: var(--aubergine-purple);
 `;
 
-export const Header = styled.header`
+const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
