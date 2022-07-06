@@ -19,11 +19,12 @@ export default Nav;
 
 export const NavBar = styled.nav`
   background-color: var(--deep-soothing-ocean);
-  position: fixed;
+  // position: fixed;
   z-index: 99;
   bottom: 0;
   width: 100%;
-  overflow: scroll;
+  overflow: hidden;
+  height: 80px;
 
   nav,
   a {
