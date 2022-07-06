@@ -13,6 +13,10 @@ function Gallery(props) {
   const allArts = props.arts || [];
   const moods = props.moods || [];
 
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section>
       <FilterNav moods={moods} arts={allArts} mood={mood} setMood={setMood} />
@@ -21,10 +25,11 @@ function Gallery(props) {
           .filter((art) => mood === "all" || art.mood === mood)
           .map((art) => {
             const href = `/posts/${art.id}`;
+            const date = new Date(art.inserted_at).toLocaleString();
             return (
               <li key={art.id}>
                 <h3>{art.mood}</h3>
-                <p>{art.date}</p>
+                <p>{date.slice(0, 10)}</p>
                 <img src={art.img} alt={art.alt} />
                 <p>{art.caption}</p>
                 <button onClick={() => router.push(href)}>Open...</button>

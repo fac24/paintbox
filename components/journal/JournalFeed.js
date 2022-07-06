@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import ArtUploadImage from "../styled-components/ArtUploadImage";
+import ListItem from "./ListItem";
 
 function JournalFeed(props) {
   const router = useRouter();
@@ -13,13 +14,17 @@ function JournalFeed(props) {
       {allArts.map((art) => {
         const href = `/posts/${art.id}`;
         return (
-          <li key={art.id}>
-            <h3>{art.mood}</h3>
-            <p>{art.date}</p>
-            <ArtUploadImage src={art.img} alt={art.alt} />
-            <p>{art.caption}</p>
-            <button onClick={() => router.push(href)}>Open...</button>
-          </li>
+          <ListItem
+            key={art.id}
+            id={art.id}
+            mood={art.mood}
+            inserted_at={art.inserted_at}
+            img={art.img}
+            alt={art.alt}
+            email={art.email}
+            caption={art.caption}
+            href={href}
+          />
         );
       })}
     </ul>

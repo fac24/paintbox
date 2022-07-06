@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 import Affirmation from "../components/affirmation/Affirmation";
@@ -8,7 +9,12 @@ import { supabase } from "../utils/supabaseClient";
 
 function Home(props) {
   const [sessionId, setSessionId] = useState(supabase.auth.session() || "");
+  const router = useRouter();
   const allArts = props.arts || [];
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
