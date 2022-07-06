@@ -4,9 +4,12 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  /* height: 100vh; */
+  height: 100vh;
   /* justify-content: center;
   max-width: 30rem; */
+  /* height: 100%; */
+  padding-bottom: 160px;
+  width: 100vw;
 }
 
 html {
@@ -16,8 +19,8 @@ html {
 
 :root {
   --deep-soothing-ocean: #8794ca;
-  --calm-greyish-white: #c7c7c7;
-  --lilly-lilac: #c8a2c8;
+  --calm-greyish-white: #eff1f0;
+  --lilly-lilac: #e7d1ff;
   --aubergine-purple: #390917;
   --salmon-pink: palevioletred;
   --clear-white: #ddd;
