@@ -19,34 +19,36 @@ function AddComment() {
       .from("comments")
       .insert({
         user_id: "a8bec8be-b4cb-49e2-99d7-5f4e13c6512c",
+        art_id: 7,
         content: comment,
       })
       .then((data) => {
         return data;
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      // .catch((error) => {
+      //   console.log(error);
+      // });
 
-    // if (!error && data) {
-    //   // If succeed
-    //   window.alert("Hooray!");
-    // } else {
-    //   // If failed
-    //   window.alert(error?.message);
-    // }
+    if (!error && data) {
+      // If succeed
+      window.alert("Hooray!");
+    } else {
+      // If failed
+      window.alert(error?.message);
+    }
   }
   // selecting comment from database
   async function getCommentList() {
     // event.preventDefault();
 
     const { data, error } = await supabase
-      .from("comments")
-      // .select('`content`, public.arts!inner(`content`)')
-      // .eq('public.arts.id', '6')
+      .from('comments')
       .select(`content`)
+      .eq('art_id', 7)
       .then((data) => {
         return data;
+        console.log(data);
+
       });
 
     if (!error && data) {
@@ -77,8 +79,8 @@ function AddComment() {
       </form>
       <div>
         {commentList.map((comment) => (
-          <div key={comment.id}>
-            <p>{comment.content}</p>
+           <div key={comment.id}> 
+            <p >{comment.content}</p>
           </div>
         ))}
       </div>
