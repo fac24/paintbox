@@ -18,13 +18,14 @@ function Nav() {
 export default Nav;
 
 export const NavBar = styled.nav`
-  background-color: var(--salmon-pink);
+  background-color: var(--deep-soothing-ocean);
   position: fixed;
   z-index: 99;
   bottom: 0;
   width: 100%;
   overflow: auto;
 
+  nav,
   a {
     float: left;
     display: block;
@@ -36,6 +37,7 @@ export const NavBar = styled.nav`
     width: 16.6%;
   }
 
+  nav,
   a:hover {
     background: var(--clear-white);
     color: var(--purple-supreme);
