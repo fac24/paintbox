@@ -1,18 +1,27 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 import Affirmation from "../components/affirmation/Affirmation";
+import SelectArts from "../components/art-posts/SelectArts";
 import PromptWord from "../components/prompt/PromptWord";
 
 import { supabase } from "../utils/supabaseClient";
 
-function Home() {
+function Home(props) {
   const [sessionId, setSessionId] = useState(supabase.auth.session() || "");
+  const router = useRouter();
+  const allArts = props.arts || [];
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
       <section>
         <PromptWord />
       </section>
+      <SelectArts arts={allArts} />
       <section>
         <Affirmation />
       </section>
@@ -21,6 +30,8 @@ function Home() {
 }
 
 export async function getServerSideProps(context) {
+  const arts = await supabase.from("arts").select().eq("public", "true");
+
   const user = (await supabase.auth.api.getUserByCookie(context.req)) || [];
 
   if (!user.user) {
@@ -30,6 +41,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       user: user.user,
+      arts: arts.data,
     },
   };
 }
