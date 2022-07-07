@@ -82,7 +82,7 @@ const GalleryWrap = styled.div`
   grid-template-columns: repeat(2, 1fr);
   // grid-template-rows: auto;
   grid-template-rows: 3ch auto minmax(10px, 60px);
-  height: 100vh;
+  // height: 100vh;
 `;
 
 const GalleryImage = styled.img`
