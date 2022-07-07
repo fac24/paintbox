@@ -1,17 +1,9 @@
-import { useRouter } from "next/router";
-import ArtUploadImage from "../styled-components/ArtUploadImage";
 import ListItem from "./ListItem";
 
-function JournalFeed(props) {
-  const router = useRouter();
-
-  const allArts = props.arts || [];
-
-  console.log(allArts);
-
+function SelectArts(props) {
   return (
     <ul>
-      {allArts.map((art) => {
+      {props.arts.map((art) => {
         const href = `/posts/${art.id}`;
         return (
           <ListItem
@@ -28,8 +20,7 @@ function JournalFeed(props) {
         );
       })}
     </ul>
-
   );
 }
 
-export default JournalFeed;
+export default SelectArts;
