@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+
+import ArtUploadImage from "../components/styled-components/ArtUploadImage";
 import ChoiceOfMood from "../components/styled-components/ChoiceOfMood";
+
 import FilterNav from "../components/filter/FilterNav";
 import MoodPost from "../components/styled-components/MoodPost";
 import { supabase } from "../utils/supabaseClient";
 import SelectArts from "../components/art-posts/SelectArts";
-import ArtUploadImage from "../components/styled-components/ArtUploadImage";
 import RainbowBorder from "../components/styled-components/RainbowBorder";
 import styled from "styled-components";
 import GalleryColumn from "../components/styled-components/GalleyColumn";
@@ -34,6 +36,7 @@ function Gallery(props) {
             const href = `/posts/${art.id}`;
             const date = new Date(art.inserted_at).toLocaleString();
             return (
+
               <>
                 {/* <MoodPost> */}
                 <ListBox key={art.id}>
@@ -46,6 +49,7 @@ function Gallery(props) {
                   <button onClick={() => router.push(href)}>Open...</button>
                 </ListBox>
               </>
+
             );
           })}
         {/* </ul> */}

@@ -51,14 +51,16 @@ function LoginPage() {
         ) : (
           <>
             <div>
-              <h2>Log in with email and password</h2>
+              <h2 className="login_h2">Log in with email and password</h2>
               <Login />
-              <h3>Or use your social account</h3>
-              <button onClick={signInWithGoogle}>Login with Google</button>
-              <button onClick={signInWithGithub}>Login with GitHub</button>
+              <h3 className="login_h3">Or use your social account</h3>
+            <div className="social_buttons">
+              <button className="google" onClick={signInWithGoogle}>Login with Google</button>
+              <button className="github" onClick={signInWithGithub}>Login with GitHub</button>
+            </div>
             </div>
             <hr></hr>
-            <div>
+            <div className="signup_link">
               <Link href="/signup">
                 <a>Sign up here if you are not registered</a>
               </Link>
