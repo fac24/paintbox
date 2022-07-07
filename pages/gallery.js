@@ -38,41 +38,17 @@ function Gallery(props) {
                 {/* <GalleryRow>
                   <GalleryColumn> */}
                 <GalleryWrap>
-                  <GalleryItem__One>
-                    {/* <RainbowBorder> */}
-                    <ListBox key={art.id}>
-                      <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                      <p>{date.slice(0, 10)}</p>
+                  {/* <RainbowBorder> */}
+                  <ListBox key={art.id}>
+                    <ChoiceOfMood>{art.mood}</ChoiceOfMood>
+                    <p>{date.slice(0, 10)}</p>
+                    <GalleryItem__One>
                       <GalleryImage src={art.img} alt={art.alt} />
-                      <p>{art.caption}</p>
-                      <button onClick={() => router.push(href)}>Open...</button>
-                    </ListBox>
-                    {/* </RainbowBorder> */}
-                  </GalleryItem__One>
-
-                  <GalleryItem__One>
-                    {/* <RainbowBorder> */}
-                    <ListBox key={art.id}>
-                      <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                      <p>{date.slice(0, 10)}</p>
-                      <GalleryImage src={art.img} alt={art.alt} />
-                      <p>{art.caption}</p>
-                      <button onClick={() => router.push(href)}>Open...</button>
-                    </ListBox>
-                    {/* </RainbowBorder> */}
-                  </GalleryItem__One>
-
-                  <GalleryItem__One>
-                    {/* <RainbowBorder> */}
-                    <ListBox key={art.id}>
-                      <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                      <p>{date.slice(0, 10)}</p>
-                      <GalleryImage src={art.img} alt={art.alt} />
-                      <p>{art.caption}</p>
-                      <button onClick={() => router.push(href)}>Open...</button>
-                    </ListBox>
-                    {/* </RainbowBorder> */}
-                  </GalleryItem__One>
+                    </GalleryItem__One>
+                    <p>{art.caption}</p>
+                    <button onClick={() => router.push(href)}>Open...</button>
+                  </ListBox>
+                  {/* </RainbowBorder> */}
                 </GalleryWrap>
                 {/* </GalleryColumn>
                 </GalleryRow> */}
@@ -105,7 +81,7 @@ export async function getServerSideProps({ req }) {
 
 export default Gallery;
 
-const GalleryWrap = styled.ul`
+const GalleryWrap = styled.div`
   grid-area: main;
   display: grid;
   grid-gap: 1.5rem;

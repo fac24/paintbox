@@ -16,7 +16,7 @@ function Nav() {
   return (
     <NavBar>
       <Link href="/"> Home </Link>
-      <Link href="/"> Community </Link>
+      {/* <Link href="/"> Community </Link> */}
       <Link href="/journal"> Journal </Link>
       <Link href="/upload"> Upload </Link>
       <Link href="/gallery"> Gallery </Link>
