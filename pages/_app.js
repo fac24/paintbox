@@ -11,7 +11,6 @@ import "../styles/globals.css";
 import Link from "next/link";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-  const [userSession, setUserSession] = useLocalArray("supabase.auth.token");
   const [userId, setUserId] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [authenticatedState, setAuthenticatedState] =
@@ -73,13 +72,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </Nav>
         )}
 
-        <Component
-          {...pageProps}
-          userSession={userSession}
-          setUserSession={setUserSession}
-          userId={userId}
-          userEmail={userEmail}
-        />
+        <Component {...pageProps} userId={userId} userEmail={userEmail} />
       </Layout>
     </SessionProvider>
   );
