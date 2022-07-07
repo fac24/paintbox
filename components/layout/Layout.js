@@ -9,7 +9,7 @@ function Layout(props) {
     <div>
       <Header>
         <PaintboxSparkleLogoImage
-          src="/Sparkle-paintbox.png"
+          src="/paintbox-logo.png"
           alt="paintbox-logo"
         />
         <Title>Paintbox</Title>
