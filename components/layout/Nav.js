@@ -5,12 +5,12 @@ import styled from "styled-components";
 function Nav() {
   return (
     <NavBar>
-      <Link href="/home"> Home |</Link>
-      <Link href="/"> Community |</Link>
-      <Link href="/journal"> Journal |</Link>
-      <Link href="/upload"> Upload |</Link>
-      <Link href="/gallery"> Gallery |</Link>
-      <Link href="/"> User Settings |</Link>
+      <Link href="/home"> Home </Link>
+      <Link href="/"> Community </Link>
+      <Link href="/journal"> Journal </Link>
+      <Link href="/upload"> Upload </Link>
+      <Link href="/gallery"> Gallery </Link>
+      {/* <Link href="/"> User Settings </Link> */}
     </NavBar>
   );
 }
@@ -24,23 +24,47 @@ export const NavBar = styled.nav`
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  height: 80px;
+  // height: 80px;
 
   nav,
   a {
     float: left;
-    display: block;
+    margin-left: 1rem;
+    display: flex;
+    flex-wrap: wrap;
     color: var(--aubergine-purple);
-    text-align: center;
-    padding: 14px 16px;
+    text-align: left;
+    // padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
-    width: 16.6%;
+    font-size: 1.8rem;
+    width: 18.5%;
+    padding: 2.5rem;
+    border-right: 5px solid var(--purple-supreme);
   }
 
   nav,
   a:hover {
     background: var(--clear-white);
     color: var(--purple-supreme);
+  }
+
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+    padding: 2%;
+    max-width: 100%;
+    // width: 19.6%;
+
+    a {
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding: 1rem;
+      font-size: 1rem;
+      align-items: center;
+      width: 100%;
+      border-right: none;
+    }
   }
 `;
