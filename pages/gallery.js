@@ -49,13 +49,13 @@ function Gallery(props) {
                     <GalleryItem className="two three four five">
                       <GalleryImage src={art.img} alt={art.alt} />
                     </GalleryItem>
-                    <button onClick={toggleInvisible}>...show mood</button>
+                    <Button onClick={toggleInvisible}>...show mood</Button>
                     {invisible ? (
                       <div>
                         <p>{art.caption}</p>
                       </div>
                     ) : null}
-                    <button onClick={() => router.push(href)}>Open...</button>
+                    <Button onClick={() => router.push(href)}>Open...</Button>
                   </ListBox>
                 </GalleryContainer>
               </>
@@ -150,4 +150,18 @@ const GalleryItem = styled.div`
     grid-row-start: 6;
     grid-row-end: 9;
   }
+`;
+
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: ${(props) => (props.primary ? "palevioletred" : "white")};
+  color: ${(props) => (props.primary ? "white" : "palevioletred")};
+
+  font-size: 1rem;
+  // margin: 1rem;
+  // padding: 0.25em 1rem;
+  display: grid;
+  gap: 1%;
+  border: 1px solid palevioletred;
+  border-radius: 3px;
 `;
