@@ -63,28 +63,3 @@ const MoodUserInfo = styled.p`
     font-size: 10px;
   }
 `;
-
-{
-  /* <RainbowBorder>
-      <MoodPost key={props.id}>
-        <p>
-          {date.slice(0, 10)}
-          <JournalImage src={props.img} alt={props.alt} />
-        </p>
-        <ListBox>
-          <ChoiceOfMood>Mood: {props.mood}</ChoiceOfMood>
-          <Button onClick={toggleVisibility}>Hide post</Button>
-          <p>Username: {props.email}</p>
-          <p>{props.caption}</p>
-          <Button onClick={() => router.push(props.href)}>Open...</Button>
-        </ListBox>
-        <div>
-          <Button onClick={() => router.push(href)}>Open...</Button>
-        </div>
-      </MoodPost>
-    </RainbowBorder>
-  ) : (
-    <Button onClick={toggleVisibility}>Show post again</Button>
-  );
-} */
-}
