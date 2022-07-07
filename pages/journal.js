@@ -1,10 +1,17 @@
+// import React from "react";
+// import Head from "next/head";
+// import styled from "styled-components";
 import JournalFeed from "../components/journal/JournalFeed";
+import WholeJournalToTheRainbowTitle from "../components/styled-components/WholeJournalToTheRainbowTitle";
+// import MoodPost from "../components/styled-components/MoodPost";
+// import MentartWrapper from "../components/styled-components/MentartWrapper";
 
 import SelectArts from "../components/art-posts/SelectArts";
 
 import { useEffect, useState } from "react";
 
 import { supabase } from "../utils/supabaseClient";
+// import RainbowBorder from "../components/styled-components/RainbowBorder";
 
 import { useRouter } from "next/router";
 
@@ -17,7 +24,9 @@ function Journal(props) {
 
   return (
     <div>
-      <h2>MentArt Journal</h2>
+      <WholeJournalToTheRainbowTitle>
+        MentArt Journal
+      </WholeJournalToTheRainbowTitle>
       <JournalFeed arts={props.arts} />
     </div>
   );
@@ -44,3 +53,12 @@ export async function getServerSideProps(context) {
 }
 
 export default Journal;
+
+// const Top = styled.div`
+//   background-color: lilac;
+// `;
+// const globalStyle = `
+// body{
+//   background-color: var(--deep-soothing-ocean);
+// }
+// `;

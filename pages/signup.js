@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Signup from "../components/authentication/Signup";
 import { supabase } from "../utils/supabaseClient";
+import StyledDiv from "../components/styled-components/StyledDiv";
 
 function SignUpPage() {
   const [sessionId, setSessionId] = useState(supabase.auth.session() || "");
@@ -12,7 +13,7 @@ function SignUpPage() {
   }
 
   return (
-    <div>
+    <StyledDiv>
       <section>
         {sessionId ? (
           <div>
@@ -34,7 +35,7 @@ function SignUpPage() {
           </>
         )}
       </section>
-    </div>
+    </StyledDiv>
   );
 }
 

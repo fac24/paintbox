@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
-
+import MoodPost from "../../components/styled-components/MoodPost";
+import WholeJournalToTheRainbowTitle from "../../components/styled-components/WholeJournalToTheRainbowTitle";
+import RainbowBorder from "../../components/styled-components/RainbowBorder";
 import { supabase } from "../../utils/supabaseClient";
 
 function Post(props) {
@@ -12,13 +14,15 @@ function Post(props) {
 
   return (
     <section>
-      <h2>Art Post</h2>
-      <div>
-        <h3>{props.post[0].mood}</h3>
-        <p>{props.post[0].date}</p>
-        <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
-        <p>{props.post[0].caption}</p>
-      </div>
+      <WholeJournalToTheRainbowTitle>Art Post</WholeJournalToTheRainbowTitle>
+      <RainbowBorder>
+        <MoodPost>
+          <h3>{props.post[0].mood}</h3>
+          <p>{props.post[0].date}</p>
+          <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
+          <p>{props.post[0].caption}</p>
+        </MoodPost>
+      </RainbowBorder>
     </section>
   );
 }
