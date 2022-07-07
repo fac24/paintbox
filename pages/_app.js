@@ -1,7 +1,7 @@
 import Layout from "../components/layout/Layout";
 import { SessionProvider } from "next-auth/react";
 import Nav from "../components/layout/Nav";
-
+// import { NavBar } from "../components/layout/Nav";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 

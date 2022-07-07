@@ -4,6 +4,28 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100vh;
+  /* justify-content: center;
+  max-width: 30rem; */
+  /* height: 100%; */
+  padding-bottom: 160px;
+  width: 100vw;
+}
+
+html {
+  /* height: 100vh; */
+  background-color: var(--calm-greyish-white);
+}
+
+:root {
+  --deep-soothing-ocean: #8794ca;
+  --calm-greyish-white: #eff1f0;
+  --lilly-lilac: #e7d1ff;
+  --aubergine-purple: #390917;
+  --salmon-pink: palevioletred;
+  --lightly-white-pink: #fff1fa;
+  --clear-white: #ddd;
+  --purple-supreme: #784890;
 }
 
 a {
@@ -13,6 +35,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.modal-panel {
+  background-color: whitesmoke;
 }
 
 /* flip-card with affirmation */
@@ -63,16 +89,16 @@ a {
   padding: 50px 0;
 }
 
-/* navigation menu */
-.navbar {
+/* navigation menu
+/* .navbar {
   background-color: #555;
   position: fixed;
   bottom: 0;
   width: 100%;
   overflow: auto;
-}
+} */
 
-.navbar a {
+/* .navbar a {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -81,9 +107,9 @@ a {
   text-decoration: none;
   font-size: 17px;
   width: 20%;
-}
+} */
 
-.navbar a:hover {
+/* .navbar a:hover {
   background: #ddd;
   color: black;
-}
+} */
