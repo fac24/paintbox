@@ -27,7 +27,7 @@ function Gallery(props) {
   return (
     <section>
       <FilterNav moods={moods} arts={allArts} mood={mood} setMood={setMood} />
-      <ul>
+      <GalleryWrap>
         {allArts
           .filter((art) => mood === "all" || art.mood === mood)
           .map((art) => {
@@ -35,27 +35,21 @@ function Gallery(props) {
             const date = new Date(art.inserted_at).toLocaleString();
             return (
               <>
-                {/* <GalleryRow>
-                  <GalleryColumn> */}
-                <GalleryWrap>
-                  {/* <RainbowBorder> */}
-                  <ListBox key={art.id}>
-                    <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                    <p>{date.slice(0, 10)}</p>
-                    <GalleryItem__One>
-                      <GalleryImage src={art.img} alt={art.alt} />
-                    </GalleryItem__One>
-                    <p>{art.caption}</p>
-                    <button onClick={() => router.push(href)}>Open...</button>
-                  </ListBox>
-                  {/* </RainbowBorder> */}
-                </GalleryWrap>
-                {/* </GalleryColumn>
-                </GalleryRow> */}
+                {/* <MoodPost> */}
+                <ListBox key={art.id}>
+                  <ChoiceOfMood>{art.mood}</ChoiceOfMood>
+                  <p>{date.slice(0, 10)}</p>
+                  <GalleryItem__One>
+                    <GalleryImage src={art.img} alt={art.alt} />
+                  </GalleryItem__One>
+                  <p>{art.caption}</p>
+                  <button onClick={() => router.push(href)}>Open...</button>
+                </ListBox>
               </>
             );
           })}
-      </ul>
+        {/* </ul> */}
+      </GalleryWrap>
     </section>
   );
 }
@@ -84,40 +78,32 @@ export default Gallery;
 const GalleryWrap = styled.div`
   grid-area: main;
   display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-    "hero   hero   of1"
-    "hero   hero   of2";
+  grid-gap: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  // grid-template-rows: auto;
+  grid-template-rows: 3ch auto minmax(10px, 60px);
   height: 100vh;
 `;
 
 const GalleryImage = styled.img`
-  // width: 100%;
-  // height: 100%;
-  // object-fit: cover;
-
-  max-height: ${(props) => props.height};
-  max-width: ${(props) => props.width};
-  grid-area: ${(props) => props.gridArea};
-  background-size: cover;
-  background-position: center center;
-  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
 `;
 
-export const gridArea = (index) => {
-  switch (index) {
-    case 0:
-      return "hero";
-    case 1:
-      return "of1";
-    case 2:
-      return "of2";
-    default:
-      return null;
-  }
-};
+// export const gridArea = (index) => {
+//   switch (index) {
+//     case 0:
+//       return "hero";
+//     case 1:
+//       return "of1";
+//     case 2:
+//       return "of2";
+//     default:
+//       return null;
+//   }
+// };
 
 const GalleryItem__One = styled.div`
   grid-column-start: 1;
