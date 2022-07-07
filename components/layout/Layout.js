@@ -12,7 +12,7 @@ function Layout(props) {
           src="/paintbox-logo.png"
           alt="paintbox-logo"
         />
-        <Title>Paintbox</Title>
+        {/* <Title>Paintbox</Title> */}
       </Header>
       <main>
         {props.children}
@@ -24,10 +24,10 @@ function Layout(props) {
 
 export default Layout;
 
-const Title = styled.h1`
-  text-align: center;
-  color: var(--aubergine-purple);
-`;
+// const Title = styled.h1`
+//   text-align: center;
+//   color: var(--aubergine-purple);
+// `;
 
 const Header = styled.header`
   display: flex;
