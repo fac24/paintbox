@@ -37,6 +37,10 @@ a {
   box-sizing: border-box;
 }
 
+.modal-panel {
+  background-color: whitesmoke;
+}
+
 /* flip-card with affirmation */
 .flip_box {
   background-color: transparent;
