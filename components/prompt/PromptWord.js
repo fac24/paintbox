@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
+import WholeJournalToTheRainbowTitle from "../styled-components/WholeJournalToTheRainbowTitle";
+import StyledTextDesc from "../styled-components/StyledTextDesc";
 
 function PromptWord() {
   const [open, setOpen] = React.useState(false);
@@ -37,8 +39,10 @@ function PromptWord() {
   );
   return (
     <div>
-      <h3>Weekly Prompt</h3>
-      <h4>Prompt word goes here</h4>
+      <WholeJournalToTheRainbowTitle>
+        Weekly Prompt
+      </WholeJournalToTheRainbowTitle>
+      <StyledTextDesc>Prompt word goes here</StyledTextDesc>
 
       {/* upload button */}
       <Link href="/upload" passHref>
