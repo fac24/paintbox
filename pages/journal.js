@@ -53,12 +53,3 @@ export async function getServerSideProps(context) {
 }
 
 export default Journal;
-
-// const Top = styled.div`
-//   background-color: lilac;
-// `;
-// const globalStyle = `
-// body{
-//   background-color: var(--deep-soothing-ocean);
-// }
-// `;
