@@ -111,19 +111,6 @@ const GalleryImage = styled.img`
   position: relative;
 `;
 
-// export const gridArea = (index) => {
-//   switch (index) {
-//     case 0:
-//       return "hero";
-//     case 1:
-//       return "of1";
-//     case 2:
-//       return "of2";
-//     default:
-//       return null;
-//   }
-// };
-
 const GalleryItem = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
@@ -187,4 +174,32 @@ const DescriptionOfFeeling = styled.p`
 
 const DateOfMood = styled.p`
   font-size: 10px;
+`;
+
+const UploadArtInput = styled.input`
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 5px;
+  border: 5px solid var(--deep-soothing-ocean);
+  text-align: center;
+  background-color: var(--lilly-lilac);
+  cursor: pointer;
 `;
