@@ -20,22 +20,24 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className = "login_form">
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           placeholder="Enter your email..."
           value={mail}
           onChange={(e) => setMail(e.target.value)}
-        />
+        /><br></br>
         <input
           type="password"
           placeholder="Enter a pasword..."
           value={pass}
           onChange={(e) => setPass(e.target.value)}
-        />
+        /><br></br>
 
-        <button onClick={signIn}>Login</button>
+        <button className="login_button" onClick={signIn}>
+          Login
+        </button>
       </form>
     </div>
   );
