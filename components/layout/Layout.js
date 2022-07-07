@@ -15,7 +15,6 @@ function Layout(props) {
         <Title>Paintbox</Title>
       </Header>
       <main>{props.children}</main>
-      <Nav />
     </div>
   );
 }

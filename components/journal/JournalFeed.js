@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-<<<<<<< HEAD
 import ListBox from "../styled-components/ListBox";
 import styled from "styled-components";
 // import ArtUploadImage from "../styled-components/ArtUploadImage";
@@ -8,10 +7,8 @@ import ChoiceOfMood from "../styled-components/ChoiceOfMood";
 import JournalImage from "../styled-components/JournalImage";
 import MoodPost from "../styled-components/MoodPost";
 import RainbowBorder from "../styled-components/RainbowBorder";
-=======
 import ArtUploadImage from "../styled-components/ArtUploadImage";
 import ListItem from "./ListItem";
->>>>>>> a749a742afc6268e0d7453ee25009e1f87f24e19
 
 function JournalFeed(props) {
   const router = useRouter();
@@ -25,26 +22,6 @@ function JournalFeed(props) {
       {allArts.map((art) => {
         const href = `/posts/${art.id}`;
         return (
-<<<<<<< HEAD
-          <>
-            <RainbowBorder>
-              <MoodPost key={art.id}>
-                <p>
-                  {art.date}
-                  <JournalImage src={art.img} alt={art.alt} />
-                </p>
-                <ListBox>
-                  {/* <DescriptionContainer key={art.id}> */}
-                  <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                  <p>{art.caption}</p>
-                  <div>
-                    <Button onClick={() => router.push(href)}>Open...</Button>
-                  </div>
-                </ListBox>
-              </MoodPost>
-            </RainbowBorder>
-          </>
-=======
           <ListItem
             key={art.id}
             id={art.id}
@@ -56,7 +33,6 @@ function JournalFeed(props) {
             caption={art.caption}
             href={href}
           />
->>>>>>> a749a742afc6268e0d7453ee25009e1f87f24e19
         );
       })}
     </div>
