@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-
+import ArtUploadImage from "../components/styled-components/ArtUploadImage";
 import FilterNav from "../components/filter/FilterNav";
 
 import { supabase } from "../utils/supabaseClient";
@@ -30,7 +30,7 @@ function Gallery(props) {
               <li key={art.id}>
                 <h3>{art.mood}</h3>
                 <p>{date.slice(0, 10)}</p>
-                <img src={art.img} alt={art.alt} />
+                <ArtUploadImage src={art.img} alt={art.alt} />
                 <p>{art.caption}</p>
                 <button onClick={() => router.push(href)}>Open...</button>
               </li>
