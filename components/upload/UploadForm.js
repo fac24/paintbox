@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
-
+import styled from "styled-components";
 import StyledDiv from "../styled-components/StyledDiv";
 import StyledSubmitButton from "../styled-components/StyledSubmitButton";
 import ArtUploadImage from "../styled-components/ArtUploadImage";
+import React from "react";
+import { render } from "react-dom";
 
 function UploadForm(props) {
   const [imageSrc, setImageSrc] = useState("");
@@ -63,10 +65,10 @@ function UploadForm(props) {
     <StyledDiv>
       <form onSubmit={submitHandler}>
         <div>
-          <label htmlFor="art">
+          <Label htmlFor="art">
             Select the piece of art you would like to share
-          </label>
-          <input
+          </Label>
+          <UploadArtInput
             type="file"
             id="art"
             name="art"
@@ -84,14 +86,14 @@ function UploadForm(props) {
           />
         </div>
 
-        <div>
-          <label htmlFor="mood">Set your mood:</label>
-          <input type="text" id="mood" name="mood" ref={moodInput} required />
-        </div>
+        <SettingMoodDiv>
+          <Label htmlFor="mood">Set your mood:</Label>
+          <Input type="text" id="mood" name="mood" ref={moodInput} required />
+        </SettingMoodDiv>
 
         <div>
-          <label htmlFor="description">Describe your feelings:</label>
-          <textarea
+          <Label htmlFor="description">Describe your feelings:</Label>
+          <DescriptionOfMoodFeeling
             rows="5"
             id="description"
             name="description"
@@ -108,22 +110,22 @@ function UploadForm(props) {
             value="true"
             ref={visibilityInput}
           />
-          <label htmlFor="visibility">
+          <Label htmlFor="visibility">
             Set the visibility of your upload PUBLIC
-          </label>
+          </Label>
         </div>
 
         <div>
-          <input
+          <UploadArtInput
             type="checkbox"
             id="prompt"
             name="prompt"
             value="true"
             ref={promptInput}
           />
-          <label htmlFor="prompt">
+          <Label htmlFor="prompt">
             This art was inspired by the weekly prompt
-          </label>
+          </Label>
         </div>
         <StyledSubmitButton>Submit</StyledSubmitButton>
       </form>
@@ -132,3 +134,65 @@ function UploadForm(props) {
 }
 
 export default UploadForm;
+
+const SettingMoodDiv = styled.div`
+  margin: 2%;
+`;
+
+const UploadArtInput = styled.input`
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 5px;
+  border: 5px solid var(--deep-soothing-ocean);
+  text-align: center;
+  background-color: var(--lilly-lilac);
+  cursor: pointer;
+`;
+
+const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: var(--aubergine-purple);
+  background: var(--lilly-lilac);
+  border: 5px solid var(--deep-soothing-ocean);s
+  border-radius: 10px;
+`;
+
+const Label = styled.label`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1%;
+`;
+
+const DescriptionOfMoodFeeling = styled.textarea`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--aubergine-purple);
+  background: var(--lilly-lilac);
+  border: 5px solid var(--deep-soothing-ocean);
+  border-radius: 10px;
+`;
