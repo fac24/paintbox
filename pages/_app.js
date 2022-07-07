@@ -1,9 +1,7 @@
 import Layout from "../components/layout/Layout";
-import useLocalArray from "../components/comments/Local";
 import { SessionProvider } from "next-auth/react";
 import Nav from "../components/layout/Nav";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 
 import { supabase } from "../utils/supabaseClient";
 
@@ -15,8 +13,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [userEmail, setUserEmail] = useState("");
   const [authenticatedState, setAuthenticatedState] =
     useState("not-authenticated");
-
-  const router = useRouter();
 
   useEffect(() => {
     /* fires when a user signs in or out */
