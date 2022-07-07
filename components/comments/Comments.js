@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { supabase } from "../../utils/supabaseClient";
 
-function AddComment() {
+function AddComment(props) {
   const [comment, setComment] = useState("");
-  const [isSending, setIsSending] = useState(false);
-  const [commentList, setCommentList] = useState([]);
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
   const onChange = (event) => {
     const commentValue = event.target.value;
@@ -12,79 +16,35 @@ function AddComment() {
   };
 
   async function handleSubmit() {
-    // event.preventDefault();
-    setIsSending(true);
-    // inserting comment into database
-    const { data, error } = await supabase
-      .from("comments")
-      .insert({
-        user_id: "a8bec8be-b4cb-49e2-99d7-5f4e13c6512c",
-        art_id: 7,
-        content: comment,
-      })
-      .then((data) => {
-        return data;
-      })
-      // .catch((error) => {
-      //   console.log(error);
-      // });
+    const { data, error } = await supabase.from("comments").insert({
+      user_id: props.userid,
+      art_id: props.artid,
+      content: comment,
+      username: props.useremail,
+    });
 
     if (!error && data) {
-      // If succeed
-      window.alert("Hooray!");
+      router.push(`/posts/${props.artid}`);
     } else {
-      // If failed
       window.alert(error?.message);
     }
   }
-  // selecting comment from database
-  async function getCommentList() {
-    // event.preventDefault();
-
-    const { data, error } = await supabase
-      .from('comments')
-      .select(`content`)
-      .eq('art_id', 7)
-      .then((data) => {
-        return data;
-        console.log(data);
-
-      });
-
-    if (!error && data) {
-      setCommentList(data);
-    } else {
-      setCommentList([]);
-    }
-  }
-
-  useEffect(() => {
-    getCommentList();
-  }, []);
 
   return (
-    <>
+    <section>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="message">Message:</label>
         <textarea
           onChange={onChange}
+          id="comment"
           name="comment"
-          placeholder="Your Comment"
-          rows="5"
+          placeholder="Write you comment..."
+          rows="6"
+          required
         />
-        <input
-          type="submit"
-          disabled={isSending}
-          value={isSending ? "Sending Comment..." : "Send Comment"}
-        />
+        <button type="submit">Send</button>
       </form>
-      <div>
-        {commentList.map((comment) => (
-           <div key={comment.id}> 
-            <p >{comment.content}</p>
-          </div>
-        ))}
-      </div>
-    </>
+    </section>
   );
 }
 

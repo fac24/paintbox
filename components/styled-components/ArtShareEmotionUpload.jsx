@@ -7,8 +7,9 @@ const ArtShareEmotionUpload = styled.section`
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
+  margin: 4rem auto;
   max-width: 40rem;
 `;
 

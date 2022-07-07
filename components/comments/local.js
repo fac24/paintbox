@@ -4,9 +4,9 @@ export default function useLocalArray(key) {
   const [localStore, setLocalStore] = useState();
 
   useEffect(() => {
-    const local = localStorage.getItem(key);
-    const positonId = local.search("id");
-    const slice = local.slice(positonId + 4, positonId + 42);
+    const local = localStorage.getItem(key) || null;
+    const positonId = local ? local.search('id"') : null;
+    const slice = local ? local.slice(positonId + 4, positonId + 42) : null;
 
     //const localObj = local.split(",,").map((string) => JSON.parse(string));
 

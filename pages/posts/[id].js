@@ -1,14 +1,21 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import CommentList from "../../components/comments/CommentList";
+import AddComment from "../../components/comments/Comments";
+
 import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
 import { supabase } from "../../utils/supabaseClient";
-import CommentForm from "../../components/comments/CommentForm";
 
 function Post(props) {
-  const [sessionId, setSessionId] = useState(supabase.auth.session());
+  const [userId, setUserId] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const router = useRouter();
 
-  console.log(props.userSession);
+  useEffect(() => {
+    setUserId(props.userId);
+    setUserEmail(props.userEmail);
+  }, [props.userEmail, props.userId]);
 
   return (
     <section>
@@ -19,7 +26,13 @@ function Post(props) {
         <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
         <p>{props.post[0].caption}</p>
       </div>
-      <CommentForm artid={props.post[0].id} userid={props.userSession} />
+      {/*  <CommentForm artid={props.post[0].id} userid={props.userSession} /> */}
+      <AddComment
+        artid={props.post[0].id}
+        userid={userId}
+        useremail={userEmail}
+      />
+      <CommentList artid={props.post[0].id} />
     </section>
   );
 }
