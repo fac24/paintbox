@@ -5,7 +5,7 @@ import WholeJournalToTheRainbowTitle from "../../components/styled-components/Wh
 import RainbowBorder from "../../components/styled-components/RainbowBorder";
 import { supabase } from "../../utils/supabaseClient";
 
-function Post({ post }) {
+function Post(props) {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -17,10 +17,10 @@ function Post({ post }) {
       <WholeJournalToTheRainbowTitle>Art Post</WholeJournalToTheRainbowTitle>
       <RainbowBorder>
         <MoodPost>
-          <h3>{post[0].mood}</h3>
-          <p>{post[0].date}</p>
-          <ArtUploadImage src={post[0].img} alt={post[0].alt} />
-          <p>{post[0].caption}</p>
+          <h3>{props.post[0].mood}</h3>
+          <p>{props.post[0].date}</p>
+          <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
+          <p>{props.post[0].caption}</p>
         </MoodPost>
       </RainbowBorder>
     </section>
@@ -38,14 +38,13 @@ export async function getStaticPaths() {
   return { paths, fallback: true };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(context) {
   const { data, error } = await supabase
     .from("arts")
     .select()
-    .eq("id", params.id);
-  const post = await data;
+    .eq("id", context.params.id);
 
-  return { props: { post }, revalidate: 5 };
+  return { props: { post: data } };
 }
 
 export default Post;

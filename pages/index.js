@@ -1,9 +1,48 @@
-import Affirmation from "../components/affirmation/Affirmation";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-export default function Hello() {
+import Affirmation from "../components/affirmation/Affirmation";
+import SelectArts from "../components/art-posts/SelectArts";
+import PromptWord from "../components/prompt/PromptWord";
+
+import { supabase } from "../utils/supabaseClient";
+
+function Home(props) {
+  const [sessionId, setSessionId] = useState(supabase.auth.session() || "");
+  const router = useRouter();
+  const allArts = props.arts || [];
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      <Affirmation />
+      <section>
+        <PromptWord />
+      </section>
+      <SelectArts arts={allArts} />
+      <section>
+        <Affirmation />
+      </section>
     </div>
   );
 }
+
+export async function getServerSideProps(context) {
+  const arts = await supabase.from("arts").select().eq("public", "true");
+
+  const user = (await supabase.auth.api.getUserByCookie(context.req)) || [];
+
+  if (!user.user) {
+    return { props: {}, redirect: { destination: "/login" } };
+  }
+
+  return {
+    props: {
+      user: user.user,
+      arts: arts.data,
+    },
+  };
+}
+export default Home;
