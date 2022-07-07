@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-// import Auth from "../components/login/Login.js";
-
-// export default function Login() {
-//     return (
-//       <section>
-//         <Auth />
-//       </section>
-//     );
-//   }
-  
-  
-=======
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -84,4 +71,3 @@ function LoginPage() {
 }
 
 export default LoginPage;
->>>>>>> ef19e139afc4533e007dadb265227e812330115f

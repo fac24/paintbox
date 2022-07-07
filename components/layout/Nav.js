@@ -15,7 +15,7 @@ function Nav() {
   return (
     <nav>
       <Link href="/home"> Home |</Link>
-      <Link href="/"> Community |</Link>
+      <Link href="/chatroom"> Community |</Link>
       <Link href="/journal"> Journal |</Link>
       <Link href="/upload"> Upload |</Link>
       <Link href="/gallery"> Gallery |</Link>
