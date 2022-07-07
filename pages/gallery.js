@@ -173,7 +173,11 @@ const DescriptionOfFeeling = styled.p`
 `;
 
 const DateOfMood = styled.p`
-  font-size: 10px;
+  font-size: 15px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
 
 const UploadArtInput = styled.input`
