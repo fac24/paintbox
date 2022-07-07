@@ -17,6 +17,10 @@ function Post(props) {
     setUserEmail(props.userEmail);
   }, [props.userEmail, props.userId]);
 
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section>
       <h2>Art Post</h2>
@@ -39,7 +43,7 @@ function Post(props) {
 
 export async function getStaticPaths() {
   const { data, error } = await supabase.from("arts").select();
-  const posts = await data;
+  const posts = data ? data : [1];
 
   const paths = posts.map((post) => ({
     params: { id: `${post.id}` },
