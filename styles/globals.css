@@ -43,6 +43,10 @@ a {
   box-sizing: border-box;
 }
 
+.modal-panel {
+  background-color: whitesmoke;
+}
+
 /* flip-card with affirmation */
 .flip_box {
   background-color: transparent;
@@ -92,15 +96,15 @@ a {
 }
 
 /* navigation menu
-.navbar {
+/* .navbar {
   background-color: #555;
   position: fixed;
   bottom: 0;
   width: 100%;
   overflow: auto;
-}
+} */
 
-.navbar a {
+/* .navbar a {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -109,11 +113,12 @@ a {
   text-decoration: none;
   font-size: 17px;
   width: 20%;
-}
+} */
 
-.navbar a:hover {
+/* .navbar a:hover {
   background: #ddd;
   color: black;
+
 }
  */
 
@@ -188,3 +193,6 @@ input[type="password"] {
   text-align: center;
   color: black;
 }
+
+} */
+
