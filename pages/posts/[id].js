@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
 import { supabase } from "../../utils/supabaseClient";
-import Comments from "../../components/comments/Comments";
+import CommentForm from "../../components/comments/CommentForm";
 
 function Post(props) {
+  const [sessionId, setSessionId] = useState(supabase.auth.session());
   const router = useRouter();
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+  console.log(props.userSession);
 
   return (
     <section>
@@ -19,7 +19,7 @@ function Post(props) {
         <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
         <p>{props.post[0].caption}</p>
       </div>
-      <Comments />
+      <CommentForm artid={props.post[0].id} userid={props.userSession} />
     </section>
   );
 }

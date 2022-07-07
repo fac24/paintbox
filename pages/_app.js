@@ -1,4 +1,5 @@
 import Layout from "../components/layout/Layout";
+import useLocalArray from "../components/comments/Local";
 import { SessionProvider } from "next-auth/react";
 import Nav from "../components/layout/Nav";
 
@@ -11,6 +12,7 @@ import "../styles/globals.css";
 import Link from "next/link";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const [userSession, setUserSession] = useLocalArray("supabase.auth.token");
   const [authenticatedState, setAuthenticatedState] =
     useState("not-authenticated");
 
@@ -64,7 +66,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </Nav>
         )}
 
-        <Component {...pageProps} />
+        <Component
+          {...pageProps}
+          userSession={userSession}
+          setUserSession={setUserSession}
+        />
       </Layout>
     </SessionProvider>
   );

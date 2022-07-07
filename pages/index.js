@@ -12,10 +12,6 @@ function Home(props) {
   const router = useRouter();
   const allArts = props.arts || [];
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div>
       <section>
