@@ -29,7 +29,7 @@ function Nav() {
 
 export default Nav;
 
-export const NavBar = styled.nav`
+const NavBar = styled.nav`
   background-color: var(--deep-soothing-ocean);
   // position: fixed;
   z-index: 99;

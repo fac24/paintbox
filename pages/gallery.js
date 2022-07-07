@@ -7,10 +7,13 @@ import { supabase } from "../utils/supabaseClient";
 import SelectArts from "../components/art-posts/SelectArts";
 import ArtUploadImage from "../components/styled-components/ArtUploadImage";
 import RainbowBorder from "../components/styled-components/RainbowBorder";
+import styled from "styled-components";
 import GalleryColumn from "../components/styled-components/GalleyColumn";
 import GalleryRow from "../components/styled-components/GalleryRow";
+import ListBox from "../components/styled-components/ListBox";
 
 function Gallery(props) {
+  // const { articles } = data.graphcmsdata;
   const [mood, setMood] = useState("all");
   const router = useRouter();
 
@@ -34,15 +37,43 @@ function Gallery(props) {
               <>
                 {/* <GalleryRow>
                   <GalleryColumn> */}
-                <RainbowBorder>
-                  <MoodPost key={art.id}>
-                    <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                    <p>{date.slice(0, 10)}</p>
-                    <ArtUploadImage src={art.img} alt={art.alt} />
-                    <p>{art.caption}</p>
-                    <button onClick={() => router.push(href)}>Open...</button>
-                  </MoodPost>
-                </RainbowBorder>
+                <GalleryWrap>
+                  <GalleryItem__One>
+                    {/* <RainbowBorder> */}
+                    <ListBox key={art.id}>
+                      <ChoiceOfMood>{art.mood}</ChoiceOfMood>
+                      <p>{date.slice(0, 10)}</p>
+                      <GalleryImage src={art.img} alt={art.alt} />
+                      <p>{art.caption}</p>
+                      <button onClick={() => router.push(href)}>Open...</button>
+                    </ListBox>
+                    {/* </RainbowBorder> */}
+                  </GalleryItem__One>
+
+                  <GalleryItem__One>
+                    {/* <RainbowBorder> */}
+                    <ListBox key={art.id}>
+                      <ChoiceOfMood>{art.mood}</ChoiceOfMood>
+                      <p>{date.slice(0, 10)}</p>
+                      <GalleryImage src={art.img} alt={art.alt} />
+                      <p>{art.caption}</p>
+                      <button onClick={() => router.push(href)}>Open...</button>
+                    </ListBox>
+                    {/* </RainbowBorder> */}
+                  </GalleryItem__One>
+
+                  <GalleryItem__One>
+                    {/* <RainbowBorder> */}
+                    <ListBox key={art.id}>
+                      <ChoiceOfMood>{art.mood}</ChoiceOfMood>
+                      <p>{date.slice(0, 10)}</p>
+                      <GalleryImage src={art.img} alt={art.alt} />
+                      <p>{art.caption}</p>
+                      <button onClick={() => router.push(href)}>Open...</button>
+                    </ListBox>
+                    {/* </RainbowBorder> */}
+                  </GalleryItem__One>
+                </GalleryWrap>
                 {/* </GalleryColumn>
                 </GalleryRow> */}
               </>
@@ -73,6 +104,108 @@ export async function getServerSideProps({ req }) {
 }
 
 export default Gallery;
+
+const GalleryWrap = styled.ul`
+  grid-area: main;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "hero   hero   of1"
+    "hero   hero   of2";
+  height: 100vh;
+`;
+
+const GalleryImage = styled.img`
+  // width: 100%;
+  // height: 100%;
+  // object-fit: cover;
+
+  max-height: ${(props) => props.height};
+  max-width: ${(props) => props.width};
+  grid-area: ${(props) => props.gridArea};
+  background-size: cover;
+  background-position: center center;
+  border-radius: 8px;
+`;
+
+export const gridArea = (index) => {
+  switch (index) {
+    case 0:
+      return "hero";
+    case 1:
+      return "of1";
+    case 2:
+      return "of2";
+    default:
+      return null;
+  }
+};
+
+const GalleryItem__One = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  & {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  & {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 6;
+  }
+
+  & {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 6;
+  }
+
+  & {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 9;
+  }
+
+  & {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 6;
+    grid-row-end: 9;
+  }
+`;
+
+// const GalleryItem__Two = styled.div`
+//   grid-column-start: 3;
+//   grid-column-end: 5;
+//   grid-row-start: 1;
+//   grid-row-end: 3;
+// `;
+
+// const GalleryItem__Three = styled.div``;
+
+// const GalleryItem__Four = styled.div``;
+
+// const GalleryItem__Five = styled.div``;
+
+// const GalleryItem__Six = styled.div``;
+
+// .gallery {
+//   display: grid;
+//   grid-template-columns: repeat(8, 1fr);
+//   grid-template-rows: repeat(8, 5vw);
+//   grid-gap: 15px;
+// }
 
 // .gallery__item--1 {
 //   grid-column-start: 1;
