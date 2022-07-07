@@ -45,14 +45,16 @@ function Gallery(props) {
                 <GalleryContainer>
                   <ListBox key={art.id}>
                     <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                    <p>{date.slice(0, 10)}</p>
+                    <DateOfMood>{date.slice(0, 10)}</DateOfMood>
                     <GalleryItem className="two three four five">
                       <GalleryImage src={art.img} alt={art.alt} />
                     </GalleryItem>
                     <Button onClick={toggleInvisible}>...show mood</Button>
                     {invisible ? (
                       <div>
-                        <p>{art.caption}</p>
+                        <DescriptionOfFeeling>
+                          {art.caption}
+                        </DescriptionOfFeeling>
                       </div>
                     ) : null}
                     <Button onClick={() => router.push(href)}>Open...</Button>
@@ -95,6 +97,11 @@ const GalleryWrap = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 3chautominmax (10px, 60px);
   padding: 1rem;
+
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    grid-gap: 0.1rem;
+  }
 `;
 
 const GalleryImage = styled.img`
@@ -164,4 +171,20 @@ const Button = styled.button`
   gap: 1%;
   border: 1px solid palevioletred;
   border-radius: 3px;
+
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+`;
+
+const DescriptionOfFeeling = styled.p`
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+`;
+
+const DateOfMood = styled.p`
+  font-size: 10px;
 `;
