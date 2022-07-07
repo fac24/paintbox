@@ -5,7 +5,7 @@ import WholeJournalToTheRainbowTitle from "../../components/styled-components/Wh
 import RainbowBorder from "../../components/styled-components/RainbowBorder";
 import { supabase } from "../../utils/supabaseClient";
 
-function Post({ post }) {
+function Post(props) {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -38,14 +38,13 @@ export async function getStaticPaths() {
   return { paths, fallback: true };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(context) {
   const { data, error } = await supabase
     .from("arts")
     .select()
-    .eq("id", params.id);
-  const post = await data;
+    .eq("id", context.params.id);
 
-  return { props: { post }, revalidate: 5 };
+  return { props: { post: data } };
 }
 
 export default Post;

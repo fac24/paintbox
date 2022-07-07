@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+<<<<<<< HEAD
 import ListBox from "../styled-components/ListBox";
 import styled from "styled-components";
 // import ArtUploadImage from "../styled-components/ArtUploadImage";
@@ -7,17 +8,24 @@ import ChoiceOfMood from "../styled-components/ChoiceOfMood";
 import JournalImage from "../styled-components/JournalImage";
 import MoodPost from "../styled-components/MoodPost";
 import RainbowBorder from "../styled-components/RainbowBorder";
+=======
+import ArtUploadImage from "../styled-components/ArtUploadImage";
+import ListItem from "./ListItem";
+>>>>>>> a749a742afc6268e0d7453ee25009e1f87f24e19
 
 function JournalFeed(props) {
   const router = useRouter();
 
-  const allArts = props.arts;
+  const allArts = props.arts || [];
+
+  console.log(allArts);
 
   return (
     <div>
       {allArts.map((art) => {
         const href = `/posts/${art.id}`;
         return (
+<<<<<<< HEAD
           <>
             <RainbowBorder>
               <MoodPost key={art.id}>
@@ -36,6 +44,19 @@ function JournalFeed(props) {
               </MoodPost>
             </RainbowBorder>
           </>
+=======
+          <ListItem
+            key={art.id}
+            id={art.id}
+            mood={art.mood}
+            inserted_at={art.inserted_at}
+            img={art.img}
+            alt={art.alt}
+            email={art.email}
+            caption={art.caption}
+            href={href}
+          />
+>>>>>>> a749a742afc6268e0d7453ee25009e1f87f24e19
         );
       })}
     </div>

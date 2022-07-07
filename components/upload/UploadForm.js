@@ -19,7 +19,7 @@ function UploadForm(props) {
     event.preventDefault();
 
     const selectedArt = artInput.current.files[0];
-    const enteredMood = moodInput.current.value;
+    const enteredMood = moodInput.current.value.toLowerCase();
     const enteredDescription = descriptionInput.current.value;
     const checkedVisibility = visibilityInput.current.checked;
     const checkedPrompt = promptInput.current.checked;
