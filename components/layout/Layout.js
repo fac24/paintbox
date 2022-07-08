@@ -8,7 +8,7 @@ function Layout(props) {
   return (
     <div>
       <Header>
-        <Image
+        <PaintboxSparkleLogoImage
           src="/paintbox-logo.png"
           alt="paintbox-logo"
           height={250}
