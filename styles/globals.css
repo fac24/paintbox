@@ -1,9 +1,37 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100vh;
+  /* justify-content: center;
+  max-width: 30rem; */
+  /* height: 100%; */
+  padding-bottom: 160px;
+  width: 100vw;
+}
+
+html {
+  /* height: 100vh; */
+  background-color: var(--calm-greyish-white);
+}
+
+:root {
+  --deep-soothing-ocean: #8794ca;
+  --calm-greyish-white: #eff1f0;
+  --lilly-lilac: #e7d1ff;
+  --aubergine-purple: #390917;
+  --salmon-pink: palevioletred;
+  --lightly-white-pink: #fff1fa;
+  --clear-white: #ddd;
+  --purple-supreme: #784890;
 }
 
 a {
@@ -13,6 +41,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.modal-panel {
+  background-color: whitesmoke;
 }
 
 /* flip-card with affirmation */
@@ -63,16 +95,16 @@ a {
   padding: 50px 0;
 }
 
-/* navigation menu */
-.navbar {
+/* navigation menu
+/* .navbar {
   background-color: #555;
   position: fixed;
   bottom: 0;
   width: 100%;
   overflow: auto;
-}
+} */
 
-.navbar a {
+/* .navbar a {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -81,9 +113,169 @@ a {
   text-decoration: none;
   font-size: 17px;
   width: 20%;
-}
+} */
 
-.navbar a:hover {
+/* .navbar a:hover {
   background: #ddd;
   color: black;
+
 }
+ */
+
+/* login page */
+.login_form {
+  border-radius: 5px;
+  background-color: #b8a9c9;
+  padding: 20px;
+  margin: auto;
+  max-width: 40rem;
+  max-height: 50rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login_button {
+  width: 100%;
+  background-color: #4caf50;
+  color: #000000;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+}
+
+.login_button:hover {
+  background-color: #45a049;
+}
+
+.login_h2,
+.login_h3 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.social_buttons {
+  margin: auto;
+  max-width: 60rem;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  
+}
+.google, 
+.github {
+  background-color: #4caf50;
+  color: #000000;
+  padding: 18px 26px;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 4px;
+  border-color: #4caf50;
+  cursor: pointer;
+}
+.google:hover,
+.github:hover {
+  background-color: #774CAF;
+  border-color: #774CAF;
+  color: white;
+
+}
+
+.signup_div {
+  text-align: center;
+  color: black;
+  font-style: italic;
+  margin: auto;
+  max-width: 40rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.signup_button {
+  text-align: center;
+  /* margin-top: 30px;
+  margin-bottom: 30px; */
+  margin: auto;
+  font-style: italic;
+  background-color: #b8a9c9;
+  color: #342249;
+  font-size: larger;
+  font-weight: 600;
+  border: 1px solid #342249;
+  border-radius: 4px;
+  padding: 14px 20px;
+  max-width: 40rem;
+
+}
+.signup_button:hover {
+  background-color: #774CAF;
+  border-color: #774CAF;
+  color: white;
+}
+
+hr {
+  margin-top: 25px;
+  height: 4px;
+  cursor: pointer;
+  width:40rem;
+  background: -webkit-linear-gradient(left, red,orange,yellow,green,blue,indigo,violet);
+  background: -moz-linear-gradient(left, red,orange,yellow,green,blue,indigo,violet,red);
+  background: -o-linear-gradient(left, red,orange,yellow,green,blue,indigo,violet,red);
+  background: -ms-linear-gradient(left, red,orange,yellow,green,blue,indigo,violet,red);
+  background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet,red);
+  background-repeat:repeat-x;
+  
+  -webkit-animation:go 1s linear infinite;
+  -moz-animation:go 1s linear infinite;
+  -o-animation:go 1s linear infinite;
+  -ms-animation:go 1s linear infinite;
+  animation:go 1s linear infinite;
+}
+
+@-webkit-keyframes go{
+  0%{background-position:0;}
+  100%{background-position:200px 0;}
+
+}
+@-moz-keyframes go{
+  0%{background-position:0;}
+  50%{background-position:100px 0;}
+  100%{background-position:200px 0;}
+
+}
+@-o-keyframes go{
+  0%{background-position:0;}
+  100%{background-position:200px 0;}
+
+}
+@-ms-keyframes go{
+  0%{background-position:0;}
+  100%{background-position:200px 0;}
+
+}
+@keyframes go{
+  0%{background-position:0;}
+  100%{background-position:200px 0;}
+
+
+} 
+
+@media only screen and (max-width: 480px) {
+  body {
+  font-size: 20px;
+  }
+}
+
