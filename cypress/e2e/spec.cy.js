@@ -20,7 +20,7 @@
 //     cy.visit('http://localhost:3000/login')
 //     cy.get('input[name="email"]').type('testuser@123.com')
 //     cy.get('input[name="password"]').type('Password123')
-//     cy.get('.login-btn').click()
+//     cy.get('#login-btn').click()
 //     })
 //     it('lets users redirect to home', () => {
 //       cy.get('nav').contains('Home').click()
