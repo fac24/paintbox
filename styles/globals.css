@@ -7,8 +7,9 @@
 html,
 body {
   padding: 0;
-  padding-bottom: 100px;
+  padding-bottom: 400px;
   margin: 0;
+  margin-bottom: 400px;
   font-family: "Edu VIC WA NT Beginner", cursive;
   font-family: "Raleway", sans-serif;
   height: 100vh;
