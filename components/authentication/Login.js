@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { supabase } from "../../utils/supabaseClient";
+import { AiOutlineMail, AiOutlineKey } from "react-icons/ai";
 
 function Login() {
   const [mail, setMail] = useState("");
@@ -20,24 +21,33 @@ function Login() {
   };
 
   return (
-    <div className = "login_form">
+    <div className="login_form">
+      <h2 className="login_h2">Log in with email and password</h2>
       <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          type="text"
-          placeholder="Enter your email..."
-          name="email"
-          value={mail}
-          onChange={(e) => setMail(e.target.value)}
-        /><br></br>
-        <input
-          type="password"
-          placeholder="Enter a pasword..."
-          name="password"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-        /><br></br>
+        <div className="logininputs">
+          <AiOutlineMail className="logicons" />
+          <input
+            type="text"
+            placeholder="Enter your email..."
+            name="email"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+          />
+        </div>
+        <br></br>
+        <div className="logininputs">
+          <AiOutlineKey className="logicons" />
+          <input
+            type="password"
+            placeholder="Enter a pasword..."
+            name="password"
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
+          />
+        </div>
+        <br></br>
         <button id="login-btn" className="login_button" onClick={signIn}>
-          Login
+          LOG IN
         </button>
       </form>
     </div>

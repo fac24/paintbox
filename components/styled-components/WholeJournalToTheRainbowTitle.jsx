@@ -11,6 +11,7 @@ const WholeJournalToTheRainbowTitle = styled.h2`
   align-items: center;
   gap: 30px;
   padding: 0.5rem;
+  font-size: 1rem;
 `;
 
 export default WholeJournalToTheRainbowTitle;

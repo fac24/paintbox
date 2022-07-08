@@ -37,6 +37,9 @@ function ListItem(props) {
           <MoodUserInfo>Username: {props.email}</MoodUserInfo>
           <p>{props.caption}</p>
           <Button onClick={() => router.push(props.href)}>Open...</Button>
+          {props.prompt ? (
+            <p>This post was inspired by the weekly prompt </p>
+          ) : null}
         </ListBox>
       </MoodPost>
     </RainbowBorder>

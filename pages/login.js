@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 import Login from "../components/authentication/Login";
+
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { supabase } from "../utils/supabaseClient";
 
 function LoginPage() {
@@ -51,18 +53,26 @@ function LoginPage() {
         ) : (
           <>
             <div>
-              <h2 className="login_h2">Log in with email and password</h2>
               <Login />
+
               <h3 className="login_h3">Or use your social account</h3>
-            <div className="social_buttons">
-              <button className="google" onClick={signInWithGoogle}>Login with Google</button>
-              <button className="github" onClick={signInWithGithub}>Login with GitHub</button>
-            </div>
+              <div className="social_buttons">
+                <button className="google" onClick={signInWithGoogle}>
+                  <FaGoogle className="socaillogicon" />
+                  Login with Google
+                </button>
+                <button className="github" onClick={signInWithGithub}>
+                  <FaGithub className="socaillogicon" />
+                  Login with GitHub
+                </button>
+              </div>
             </div>
             <hr></hr>
             <div className="signup_div">
               <Link href="/signup" passHref>
-                <button className ="signup_button" variant="contained">Sign up here if you are not registered</button>
+                <button className="signup_button" variant="contained">
+                  Sign up here if you are not registered
+                </button>
               </Link>
             </div>
           </>

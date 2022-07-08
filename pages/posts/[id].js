@@ -27,7 +27,6 @@ function Post(props) {
 
   return (
     <section>
-
       {/* <WholeJournalToTheRainbowTitle>Art Post</WholeJournalToTheRainbowTitle>
       <RainbowBorder>
         <MoodPost>
@@ -44,6 +43,9 @@ function Post(props) {
         <p>{props.post[0].date}</p>
         <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
         <p>{props.post[0].caption}</p>
+        {props.post[0].prompt ? (
+          <p>This post was inspired by the weekly prompt </p>
+        ) : null}
       </div>
 
       <AddComment
