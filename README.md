@@ -1,4 +1,13 @@
 # Paintbox
+
+![paintbox-logo](https://user-images.githubusercontent.com/45575016/178011269-e1c24d41-df69-4f7e-b702-f9bf1fbf685b.png)
+
+# :art: Designed and Developed by: 
+- [Asmahan](https://github.com/AsmahanM) :Scrum Facilitator
+- [Hallie](https://github.com/vasystus): Quality Assurance
+- [Peter](https://github.com/PJSalter): UX/UI Lead
+- [Petra](https://github.com/alternadiva): DevOps
+
 ### An app that brings up the spirits of anyone and everyone that feels down and concerned with troubles. This app also gives users a journal to express and track their art privately.
 ### This comes down to art therapy- users can upload art that reflects their mood. 
 ### Users will also be able to upload art inspired by the weekly prompt that can be viewed in a public gallery (if they'd like).
