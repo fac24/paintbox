@@ -25,9 +25,11 @@ function PromptWord() {
   });
 
   const moreInfo = !open ? null : (
+
     <PromptText>
+
       <p>
-        If you’re lack of inspiration or like challenging yourself our weekly
+        If you’re lacking inspiration or like challenging yourself, our weekly
         prompt gives you a word to create your next art work based on it.
       </p>
       <p>
@@ -42,6 +44,7 @@ function PromptWord() {
   );
   return (
     <div>
+
       <WholeJournalToTheRainbowTitle>
         Weekly Prompt
       </WholeJournalToTheRainbowTitle>

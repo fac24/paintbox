@@ -26,7 +26,7 @@ function ListItem(props) {
         </p>
         <ListBox>
           <ChoiceOfMood>Mood: {props.mood}</ChoiceOfMood>
-          <Button onClick={toggleVisibility}>Hide post</Button>
+          <Button id="hide-btn" onClick={toggleVisibility}>Hide post</Button>
           <p>Username: {props.email}</p>
           <p>{props.caption}</p>
           <Button onClick={() => router.push(props.href)}>Open...</Button>

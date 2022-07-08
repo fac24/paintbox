@@ -25,17 +25,18 @@ function Login() {
         <input
           type="text"
           placeholder="Enter your email..."
+          name="email"
           value={mail}
           onChange={(e) => setMail(e.target.value)}
         /><br></br>
         <input
           type="password"
-          placeholder="Enter a password..."
+          placeholder="Enter a pasword..."
+          name="password"
           value={pass}
           onChange={(e) => setPass(e.target.value)}
         /><br></br>
-
-        <button className="login_button" onClick={signIn}>
+        <button id="login-btn" className="login_button" onClick={signIn}>
           Login
         </button>
       </form>
