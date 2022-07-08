@@ -22,9 +22,9 @@ function PromptWord() {
 
 
   const moreInfo = !open ? null : (
-    <div>
+    <div id="prompt-div">
       <p>
-        If you’re lack of inspiration or like challenging yourself our weekly
+        If you’re lacking inspiration or like challenging yourself, our weekly
         prompt gives you a word to create your next art work based on it.
       </p>
       <p>
@@ -47,7 +47,7 @@ function PromptWord() {
         <RedirectButton />
       </Link>
       {/* expanding text button */}
-      <button onClick={toggleOpen}>
+      <button id="toggle-btn" onClick={toggleOpen}>
         <FaAngleDown />
       </button>
       {moreInfo}

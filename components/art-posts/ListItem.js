@@ -14,7 +14,7 @@ function ListItem(props) {
     <li key={props.id}>
       <h3>Mood: {props.mood}</h3>
       <p>{date.slice(0, 10)}</p>
-      <button onClick={toggleVisibility}>Hide post</button>
+      <button id="hide-btn" onClick={toggleVisibility}>Hide post</button>
       <img src={props.img} alt={props.alt} />
       <p>Username: {props.email}</p>
       <p>{props.caption}</p>
