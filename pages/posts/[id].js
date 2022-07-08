@@ -28,7 +28,7 @@ function Post(props) {
   return (
     <section>
 
-      /* <WholeJournalToTheRainbowTitle>Art Post</WholeJournalToTheRainbowTitle>
+      {/* <WholeJournalToTheRainbowTitle>Art Post</WholeJournalToTheRainbowTitle>
       <RainbowBorder>
         <MoodPost>
           <h3>{props.post[0].mood}</h3>
@@ -36,7 +36,7 @@ function Post(props) {
           <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
           <p>{props.post[0].caption}</p>
         </MoodPost>
-      </RainbowBorder> */
+      </RainbowBorder> */}
 
       <h2>Art Post</h2>
       <div>
