@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import StyledSubmitButton from "../styled-components/StyledSubmitButton";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -22,7 +23,7 @@ function Nav() {
       <Link href="/gallery"> Gallery </Link>
       {/* <Link href="/profile"> User Settings |</Link> */}
 
-      <button onClick={signOut}>Logout</button>
+      <StyledSubmitButton onClick={signOut}>Logout</StyledSubmitButton>
     </NavBar>
   );
 }

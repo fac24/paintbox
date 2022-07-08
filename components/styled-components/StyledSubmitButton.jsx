@@ -12,6 +12,7 @@ const StyledSubmitButton = styled.button`
   border-radius: 12px;
   padding: 1%;
   margin: 5% auto;
+  border: 5px solid var(--lightly-white-pink);
 `;
 
 export default StyledSubmitButton;
