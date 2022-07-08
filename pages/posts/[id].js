@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import CommentList from "../../components/comments/CommentList";
 import AddComment from "../../components/comments/Comments";
 
-import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
-
 import { supabase } from "../../utils/supabaseClient";
 import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
 import MoodPost from "../../components/styled-components/MoodPost";
