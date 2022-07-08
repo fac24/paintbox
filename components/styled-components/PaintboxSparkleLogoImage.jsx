@@ -11,6 +11,11 @@ const PaintboxSparkleLogoImage = styled.img`
   margin-right: auto;
   max-width: 40rem;
   padding: 5%;
+
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    width: 55%;
+  }
 `;
 
 export default PaintboxSparkleLogoImage;

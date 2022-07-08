@@ -3,20 +3,20 @@ import { useRouter } from "next/router";
 
 import ArtUploadImage from "../components/styled-components/ArtUploadImage";
 import ChoiceOfMood from "../components/styled-components/ChoiceOfMood";
-
+// import Button from "../components/journal/ListItem";
 import FilterNav from "../components/filter/FilterNav";
-import MoodPost from "../components/styled-components/MoodPost";
+// import MoodPost from "../components/styled-components/MoodPost";
 import { supabase } from "../utils/supabaseClient";
 import SelectArts from "../components/art-posts/SelectArts";
 import RainbowBorder from "../components/styled-components/RainbowBorder";
 import styled from "styled-components";
-import GalleryColumn from "../components/styled-components/GalleyColumn";
-import GalleryRow from "../components/styled-components/GalleryRow";
 import ListBox from "../components/styled-components/ListBox";
+import GalleryContainer from "../components/styled-components/GalleryContainer";
 
 function Gallery(props) {
   // const { articles } = data.graphcmsdata;
   const [mood, setMood] = useState("all");
+  const [invisible, setInvisible] = useState(false);
   const router = useRouter();
 
   const allArts = props.arts || [];
@@ -24,6 +24,10 @@ function Gallery(props) {
 
   if (router.isFallback) {
     return <div>Loading...</div>;
+  }
+
+  function toggleInvisible() {
+    setInvisible(!invisible);
   }
 
   return (
@@ -36,20 +40,27 @@ function Gallery(props) {
             const href = `/posts/${art.id}`;
             const date = new Date(art.inserted_at).toLocaleString();
             return (
-
               <>
                 {/* <MoodPost> */}
-                <ListBox key={art.id}>
-                  <ChoiceOfMood>{art.mood}</ChoiceOfMood>
-                  <p>{date.slice(0, 10)}</p>
-                  <GalleryItem__One>
-                    <GalleryImage src={art.img} alt={art.alt} />
-                  </GalleryItem__One>
-                  <p>{art.caption}</p>
-                  <button onClick={() => router.push(href)}>Open...</button>
-                </ListBox>
+                <GalleryContainer>
+                  <ListBox key={art.id}>
+                    <ChoiceOfMood>{art.mood}</ChoiceOfMood>
+                    <DateOfMood>{date.slice(0, 10)}</DateOfMood>
+                    <GalleryItem className="two three four five">
+                      <GalleryImage src={art.img} alt={art.alt} />
+                    </GalleryItem>
+                    <Button onClick={toggleInvisible}>...show mood</Button>
+                    {invisible ? (
+                      <div>
+                        <DescriptionOfFeeling>
+                          {art.caption}
+                        </DescriptionOfFeeling>
+                      </div>
+                    ) : null}
+                    <Button onClick={() => router.push(href)}>Open...</Button>
+                  </ListBox>
+                </GalleryContainer>
               </>
-
             );
           })}
         {/* </ul> */}
@@ -82,11 +93,15 @@ export default Gallery;
 const GalleryWrap = styled.div`
   grid-area: main;
   display: grid;
-  grid-gap: 2.5rem;
-  grid-template-columns: repeat(2, 1fr);
-  // grid-template-rows: auto;
-  grid-template-rows: 3ch auto minmax(10px, 60px);
-  // height: 100vh;
+  grid-gap: 0.3rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 3chautominmax (10px, 60px);
+  padding: 1rem;
+
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    grid-gap: 0.1rem;
+  }
 `;
 
 const GalleryImage = styled.img`
@@ -96,54 +111,34 @@ const GalleryImage = styled.img`
   position: relative;
 `;
 
-// export const gridArea = (index) => {
-//   switch (index) {
-//     case 0:
-//       return "hero";
-//     case 1:
-//       return "of1";
-//     case 2:
-//       return "of2";
-//     default:
-//       return null;
-//   }
-// };
-
-const GalleryItem__One = styled.div`
+const GalleryItem = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
 
-  & {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 3;
-  }
-
-  & {
+  .two {
     grid-column-start: 5;
     grid-column-end: 9;
     grid-row-start: 1;
     grid-row-end: 6;
   }
 
-  & {
+  .three {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 6;
   }
 
-  & {
+  .four {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 6;
     grid-row-end: 9;
   }
 
-  & {
+  .five {
     grid-column-start: 5;
     grid-column-end: 9;
     grid-row-start: 6;
@@ -151,66 +146,64 @@ const GalleryItem__One = styled.div`
   }
 `;
 
-// const GalleryItem__Two = styled.div`
-//   grid-column-start: 3;
-//   grid-column-end: 5;
-//   grid-row-start: 1;
-//   grid-row-end: 3;
-// `;
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: ${(props) => (props.primary ? "palevioletred" : "white")};
+  color: ${(props) => (props.primary ? "white" : "palevioletred")};
 
-// const GalleryItem__Three = styled.div``;
+  font-size: 1rem;
+  // margin: 1rem;
+  // padding: 0.25em 1rem;
+  display: grid;
+  gap: 1%;
+  border: 1px solid palevioletred;
+  border-radius: 3px;
 
-// const GalleryItem__Four = styled.div``;
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+`;
 
-// const GalleryItem__Five = styled.div``;
+const DescriptionOfFeeling = styled.p`
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+`;
 
-// const GalleryItem__Six = styled.div``;
+const DateOfMood = styled.p`
+  font-size: 15px;
 
-// .gallery {
-//   display: grid;
-//   grid-template-columns: repeat(8, 1fr);
-//   grid-template-rows: repeat(8, 5vw);
-//   grid-gap: 15px;
-// }
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+`;
 
-// .gallery__item--1 {
-//   grid-column-start: 1;
-//   grid-column-end: 3;
-//   grid-row-start: 1;
-//   grid-row-end: 3;
-// }
-
-// .gallery__item--2 {
-//   grid-column-start: 3;
-//   grid-column-end: 5;
-//   grid-row-start: 1;
-//   grid-row-end: 3;
-// }
-
-// .gallery__item--3 {
-//   grid-column-start: 5;
-//   grid-column-end: 9;
-//   grid-row-start: 1;
-//   grid-row-end: 6;
-// }
-
-// .gallery__item--4 {
-//   grid-column-start: 1;
-//   grid-column-end: 5;
-//   grid-row-start: 3;
-//   grid-row-end: 6;
-// }
-
-// .gallery__item--5 {
-//   grid-column-start: 1;
-//   grid-column-end: 5;
-//   grid-row-start: 6;
-//   grid-row-end: 9;
-// }
-
-// .gallery__item--6 {
-//   grid-column-start: 5;
-//   grid-column-end: 9;
-//   grid-row-start: 6;
-//   grid-row-end: 9;
-// }
+const UploadArtInput = styled.input`
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 5px;
+  border: 5px solid var(--deep-soothing-ocean);
+  text-align: center;
+  background-color: var(--lilly-lilac);
+  cursor: pointer;
+`;

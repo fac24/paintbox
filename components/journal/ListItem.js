@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
-import JournalImage from "../styled-components/JournalImage";
+import ArtUploadImage from "../styled-components/ArtUploadImage";
 import MoodPost from "../styled-components/MoodPost";
 import ListBox from "../styled-components/ListBox";
 import ChoiceOfMood from "../styled-components/ChoiceOfMood";
@@ -33,8 +33,8 @@ function ListItem(props) {
               <UpdatePost id={props.id} />
             </div>
           ) : null}
-          <JournalImage src={props.img} alt={props.alt} />
-          <p>Username: {props.email}</p>
+          <ArtUploadImage src={props.img} alt={props.alt} />
+          <MoodUserInfo>Username: {props.email}</MoodUserInfo>
           <p>{props.caption}</p>
           <Button onClick={() => router.push(props.href)}>Open...</Button>
         </ListBox>
@@ -57,27 +57,9 @@ const Button = styled.button`
   border-radius: 3px;
 `;
 
-{
-  /* <RainbowBorder>
-      <MoodPost key={props.id}>
-        <p>
-          {date.slice(0, 10)}
-          <JournalImage src={props.img} alt={props.alt} />
-        </p>
-        <ListBox>
-          <ChoiceOfMood>Mood: {props.mood}</ChoiceOfMood>
-          <Button onClick={toggleVisibility}>Hide post</Button>
-          <p>Username: {props.email}</p>
-          <p>{props.caption}</p>
-          <Button onClick={() => router.push(props.href)}>Open...</Button>
-        </ListBox>
-        <div>
-          <Button onClick={() => router.push(href)}>Open...</Button>
-        </div>
-      </MoodPost>
-    </RainbowBorder>
-  ) : (
-    <Button onClick={toggleVisibility}>Show post again</Button>
-  );
-} */
-}
+const MoodUserInfo = styled.p`
+  // for mobile screens.
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+`;

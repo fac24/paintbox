@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 function FilterNav(props) {
   const mostCount = props.moods.sort((a, b) => (a.count < b.count ? 1 : -1));
@@ -7,7 +8,7 @@ function FilterNav(props) {
 
   return (
     <form>
-      <fieldset>
+      <FilterFieldSet>
         <label htmlFor="moods">Filter by mood:</label>
         <select
           name="moods"
@@ -23,9 +24,27 @@ function FilterNav(props) {
             </option>
           ))}
         </select>
-      </fieldset>
+      </FilterFieldSet>
     </form>
   );
 }
 
 export default FilterNav;
+
+const FilterFieldSet = styled.fieldset`
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  max-width: 40rem;
+  border-radius: 5px;
+  border: 5px solid var(--deep-soothing-ocean);
+  text-align: center;
+  background-color: var(--lilly-lilac);
+  cursor: pointer;
+`;
