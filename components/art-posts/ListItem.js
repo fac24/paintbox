@@ -31,9 +31,6 @@ function ListItem(props) {
           <p>{props.caption}</p>
           <Button onClick={() => router.push(props.href)}>Open...</Button>
         </ListBox>
-        <div>
-          <Button onClick={() => router.push(href)}>Open...</Button>
-        </div>
       </MoodPost>
     </RainbowBorder>
   ) : (

@@ -1,10 +1,21 @@
 import { useRouter } from "next/router";
-import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
+import { useEffect, useState } from "react";
 
+import CommentList from "../../components/comments/CommentList";
+import AddComment from "../../components/comments/Comments";
+
+import ArtUploadImage from "../../components/styled-components/ArtUploadImage";
 import { supabase } from "../../utils/supabaseClient";
 
 function Post(props) {
+  const [userId, setUserId] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    setUserId(props.userId);
+    setUserEmail(props.userEmail);
+  }, [props.userEmail, props.userId]);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -19,13 +30,20 @@ function Post(props) {
         <ArtUploadImage src={props.post[0].img} alt={props.post[0].alt} />
         <p>{props.post[0].caption}</p>
       </div>
+      {/*  <CommentForm artid={props.post[0].id} userid={props.userSession} /> */}
+      <AddComment
+        artid={props.post[0].id}
+        userid={userId}
+        useremail={userEmail}
+      />
+      <CommentList artid={props.post[0].id} />
     </section>
   );
 }
 
 export async function getStaticPaths() {
   const { data, error } = await supabase.from("arts").select();
-  const posts = await data;
+  const posts = data ? data : [1];
 
   const paths = posts.map((post) => ({
     params: { id: `${post.id}` },
