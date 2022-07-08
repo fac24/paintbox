@@ -1,9 +1,7 @@
 import Layout from "../components/layout/Layout";
 import { SessionProvider } from "next-auth/react";
 import Nav from "../components/layout/Nav";
-// import { NavBar } from "../components/layout/Nav";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 
 import { supabase } from "../utils/supabaseClient";
 
@@ -11,10 +9,10 @@ import "../styles/globals.css";
 import Link from "next/link";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const [userId, setUserId] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const [authenticatedState, setAuthenticatedState] =
     useState("not-authenticated");
-
-  const router = useRouter();
 
   useEffect(() => {
     /* fires when a user signs in or out */
@@ -23,9 +21,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         handleAuthChange(event, session);
         if (event === "SIGNED_IN") {
           setAuthenticatedState("authenticated");
+          setUserId(session.user.id);
+          setUserEmail(session.user.email);
         }
         if (event === "SIGNED_OUT") {
           setAuthenticatedState("not-authenticated");
+          setUserId("");
+          setUserEmail("");
         }
       }
     );
@@ -40,6 +42,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const user = await supabase.auth.user();
     if (user) {
       setAuthenticatedState("authenticated");
+      setUserId(user.id);
+      setUserEmail(user.email);
     }
   }
 
@@ -64,7 +68,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </Nav>
         )}
 
-        <Component {...pageProps} />
+        <Component {...pageProps} userId={userId} userEmail={userEmail} />
       </Layout>
     </SessionProvider>
   );
