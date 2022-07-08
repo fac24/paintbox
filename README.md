@@ -39,4 +39,17 @@
 
 ![image](https://user-images.githubusercontent.com/90645969/178011349-c7d57e03-1d00-4494-ab09-6198e4331466.png)
 
+# For the likeminded Coders: 
+### Using the Application for Coders
+
+1) In the terminal run `git clone https://github.com/fac24/paintbox.git`
+2) Then run `cd paintbox`
+3) Then `code .` to open repo in your code editor
+4) Make up your own `env.local` file in the root of the project.
+5) Then Run `npm install` to get the depenencies
+6) After this you can experience the wonder of Paintbox App.
+
+![therapy](https://user-images.githubusercontent.com/45575016/178046348-3adecbc2-6cd1-4d14-b3db-9ff38a1c85de.gif)
+
+
 
