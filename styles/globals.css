@@ -21,6 +21,11 @@ body {
   color: var(--aubergine-purple);
 }
 
+main {
+    padding-bottom: 300px;
+  margin-bottom: 300px;
+}
+
 html {
   /* height: 100vh; */
   background-color: var(--calm-greyish-white);
