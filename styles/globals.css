@@ -7,7 +7,9 @@
 html,
 body {
   padding: 0;
+  padding-bottom: 400px;
   margin: 0;
+  margin-bottom: 400px;
   font-family: "Edu VIC WA NT Beginner", cursive;
   font-family: "Raleway", sans-serif;
   height: 100vh;
@@ -17,6 +19,11 @@ body {
   padding-bottom: 160px;
   width: 100vw;
   color: var(--aubergine-purple);
+}
+
+main {
+    padding-bottom: 300px;
+  margin-bottom: 300px;
 }
 
 html {
