@@ -60,9 +60,9 @@ function LoginPage() {
             </div>
             </div>
             <hr></hr>
-            <div className="signup_link">
-              <Link href="/signup">
-                <a>Sign up here if you are not registered</a>
+            <div className="signup_div">
+              <Link href="/signup" passHref>
+                <button className ="signup_button" variant="contained">Sign up here if you are not registered</button>
               </Link>
             </div>
           </>
