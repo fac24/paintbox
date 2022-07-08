@@ -16,7 +16,7 @@ function Layout(props) {
       </Header>
       <main>
         {props.children}
-        <Nav />
+        {/* <Nav /> */}
       </main>
     </div>
   );

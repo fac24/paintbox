@@ -16,7 +16,7 @@ function Nav() {
   return (
     <NavBar>
       <Link href="/"> Home </Link>
-      <Link href="/"> Community </Link>
+      {/* <Link href="/"> Community </Link> */}
       <Link href="/journal"> Journal </Link>
       <Link href="/upload"> Upload </Link>
       <Link href="/gallery"> Gallery </Link>
@@ -29,7 +29,7 @@ function Nav() {
 
 export default Nav;
 
-export const NavBar = styled.nav`
+const NavBar = styled.nav`
   background-color: var(--deep-soothing-ocean);
   // position: fixed;
   z-index: 99;

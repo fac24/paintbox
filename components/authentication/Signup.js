@@ -19,12 +19,14 @@ function Signup() {
       <p>Signup</p>
       <input
         type="text"
+        name="emailinput"
         placeholder="Enter your email..."
         value={mail}
         onChange={(e) => setMail(e.target.value)}
       />
       <input
         type="password"
+        name="passwordinput"
         placeholder="Enter a pasword..."
         value={pass}
         onChange={(e) => setPass(e.target.value)}
