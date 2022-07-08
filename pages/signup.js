@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Signup from "../components/authentication/Signup";
 import { supabase } from "../utils/supabaseClient";
-import StyledDiv from "../components/styled-components/StyledDiv";
+//import StyledDiv from "../components/styled-components/StyledDiv";
 
 function SignUpPage() {
   const [sessionId, setSessionId] = useState(supabase.auth.session() || "");
@@ -13,7 +13,7 @@ function SignUpPage() {
   }
 
   return (
-    <StyledDiv>
+    <div className="login_form">
       <section>
         {sessionId ? (
           <div>
@@ -23,11 +23,10 @@ function SignUpPage() {
         ) : (
           <>
             <div>
-              <h2>Sign up with email and password</h2>
+              <h2 className="login_h2">Sign up with email and password</h2>
               <Signup />
             </div>
-            <hr></hr>
-            <div>
+            <div className="signup_div">
               <Link href="/login">
                 <a>Log in here if you already have an account</a>
               </Link>
@@ -35,7 +34,7 @@ function SignUpPage() {
           </>
         )}
       </section>
-    </StyledDiv>
+    </div>
   );
 }
 

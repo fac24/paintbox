@@ -15,7 +15,7 @@ function Home(props) {
   return (
     <div>
       <section>
-        <PromptWord />
+        <PromptWord prompt={props.prompt} />
       </section>
       <SelectArts arts={allArts} />
       <section>

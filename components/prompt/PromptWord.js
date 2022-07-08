@@ -8,7 +8,7 @@ import StyledDiv from "../styled-components/StyledDiv";
 import styled from "styled-components";
 // import StyledSubmitButton from "../styled-components/StyledSubmitButton";
 
-function PromptWord() {
+function PromptWord(props) {
   const [open, setOpen] = React.useState(false);
   function toggleOpen() {
     setOpen(!open);
@@ -25,9 +25,7 @@ function PromptWord() {
   });
 
   const moreInfo = !open ? null : (
-
     <PromptText>
-
       <p>
         If you’re lacking inspiration or like challenging yourself, our weekly
         prompt gives you a word to create your next art work based on it.
@@ -44,12 +42,11 @@ function PromptWord() {
   );
   return (
     <div>
-
-      <WholeJournalToTheRainbowTitle>
-        Weekly Prompt
-      </WholeJournalToTheRainbowTitle>
-      <StyledTextDesc>Prompt word goes here</StyledTextDesc>
       <StyledDivPrompt>
+        <WholeJournalToTheRainbowTitle>
+          Weekly Prompt
+        </WholeJournalToTheRainbowTitle>
+        <StyledTextDesc>{props.prompt.toUpperCase()}</StyledTextDesc>
         {/* upload button */}
         <StyledLink>
           <Link href="/upload" passHref>
@@ -79,6 +76,8 @@ const StyledDivPrompt = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 40rem;
+  margin-top: 40px;
+  height: fit-content;
 `;
 
 const Button = styled.button`
@@ -107,4 +106,5 @@ const StyledLink = styled.button`
 
 const PromptText = styled.div`
   text-align: center;
+  padding: 10px 30px;
 `;

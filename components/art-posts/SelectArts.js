@@ -16,6 +16,7 @@ function SelectArts(props) {
             email={art.email}
             caption={art.caption}
             href={href}
+            prompt={art.prompt}
           />
         );
       })}

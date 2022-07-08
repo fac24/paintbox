@@ -31,28 +31,33 @@ function Nav() {
 export default Nav;
 
 const NavBar = styled.nav`
-  background-color: var(--deep-soothing-ocean);
-  // position: fixed;
-  z-index: 99;
+  background-color: white;
+  overflow: hidden;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  overflow: hidden;
-  // height: 80px;
+  z-index: 100;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  background-color: var(--lightly-white-pink);
 
   nav,
   a {
     float: left;
     margin-left: 1rem;
     display: flex;
-    flex-wrap: wrap;
-    color: var(--aubergine-purple);
-    text-align: left;
-    // padding: 14px 16px;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    text-align: center;
     text-decoration: none;
-    font-size: 1.8rem;
-    width: 18.5%;
-    padding: 2.5rem;
-    border-right: 5px solid var(--purple-supreme);
+    font-size: 1.4rem;
+    padding: 1rem;
   }
 
   nav,

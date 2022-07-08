@@ -11,6 +11,7 @@ import Link from "next/link";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [userId, setUserId] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  const [prompt, setPrompt] = useState("flower");
   const [authenticatedState, setAuthenticatedState] =
     useState("not-authenticated");
 
@@ -68,7 +69,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </Nav>
         )}
 
-        <Component {...pageProps} userId={userId} userEmail={userEmail} />
+        <Component
+          {...pageProps}
+          userId={userId}
+          userEmail={userEmail}
+          prompt={prompt}
+        />
       </Layout>
     </SessionProvider>
   );
