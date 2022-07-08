@@ -11,8 +11,8 @@ import { supabase } from "../utils/supabaseClient";
 import { useRouter } from "next/router";
 
 function Upload(props) {
-  const [moodInput, setMoodInput] = useState();
-  const [moodCount, setMoodCount] = useState();
+  const [moodInput, setMoodInput] = useState("");
+  const [moodCount, setMoodCount] = useState(0);
   const [sessionId, setSessionId] = useState(supabase.auth.session()); //pass down as props later!!
   const router = useRouter();
   const moodArray = MoodCollection();
