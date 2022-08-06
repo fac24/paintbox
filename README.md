@@ -22,6 +22,10 @@
 - 🧩 🤹 React and NextJS
 - 🌡 🧪 Cypress 
 - 🧑‍🎨 💅 Styled with Styled component and Vanilla CSS
+- Supabase database and authentication
+- Prettier code formatting
+- ESLint linting
+- vercel deployment
 
 ## 👩‍🎨 User Stories:
 - [x] Users can sign up and log in manually or via Google or Github.
